@@ -1,10 +1,6 @@
 {
 	"name": "CosmosDb",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "CosmosDB",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "CosmosDbSqlApiCollection",
 		"schema": {},
