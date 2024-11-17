@@ -1,0 +1,9 @@
+{
+	"name": "ADF-SyrtoResearch",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "270d2690-4e2c-408f-8024-ce7de04cd0da",
+		"tenantId": "18446880-3c00-4dac-b9f8-5bd1f73b5748"
+	}
+}
