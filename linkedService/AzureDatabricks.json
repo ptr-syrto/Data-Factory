@@ -1,6 +1,5 @@
 {
 	"name": "AzureDatabricks",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "AzureDatabricksDeltaLake",
@@ -16,5 +15,6 @@
 				"secretName": "databricks-pietro"
 			}
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
