@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADF-SyrtoResearch"
+		},
+		"CosmosDb_connectionString": {
+			"value": ""
+		},
+		"ManualStagingBlob_accountKey": {
+			"value": ""
+		},
+		"AzureVault_properties_typeProperties_baseUrl": {
+			"value": "https://SyrtoVault.vault.azure.net/"
+		},
+		"ManualStagingBlob_properties_typeProperties_url": {
+			"value": "https://syrtostaging.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
