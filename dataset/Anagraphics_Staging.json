@@ -1,5 +1,5 @@
 {
-	"name": "Balance_Sheets_Staging",
+	"name": "Anagraphics_Staging",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ManualStagingBlob",
@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "balance_sheets",
+				"folderPath": "anagraphics",
 				"fileSystem": "db-staging"
 			},
 			"compressionCodec": "snappy"

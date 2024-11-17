@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DB_ADF_Staging",
+						"referenceName": "Balance_Sheets_Staging",
 						"type": "DatasetReference"
 					},
 					"name": "BalanceSheets"

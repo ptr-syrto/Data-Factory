@@ -47,7 +47,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "DB_ADF_Staging",
+						"referenceName": "Balance_Sheets_Staging",
 						"type": "DatasetReference"
 					},
 					"enableLogging": false,
@@ -105,7 +105,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DB_ADF_Staging",
+						"referenceName": "Balance_Sheets_Staging",
 						"type": "DatasetReference"
 					}
 				]
