@@ -173,7 +173,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     format: 'parquet') ~> BalanceSheets",
-				"CreateStructs aggregate(groupBy(tax_id = id),",
+				"CreateStructs aggregate(groupBy(taxID = id),",
 				"     financials = collect(Financials)) ~> Groupbyid",
 				"BalanceSheets derive(Financials = @(uuid=uuid,",
 				"          year=year,",
