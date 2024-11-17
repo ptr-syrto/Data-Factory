@@ -80,7 +80,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureDatabricksDeltaLakeSource",
-						"query": "SELECT * FROM deployed.complete.balance_sheets\nLIMIT 1000",
+						"query": "SELECT * FROM deployed.complete.balance_sheets",
 						"exportSettings": {
 							"type": "AzureDatabricksDeltaLakeExportCommand"
 						}
