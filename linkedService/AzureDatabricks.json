@@ -1,0 +1,20 @@
+{
+	"name": "AzureDatabricks",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricksDeltaLake",
+		"typeProperties": {
+			"domain": "https://adb-621924991732662.2.azuredatabricks.net",
+			"clusterId": "1117-123610-x5x80num",
+			"accessToken": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "databricks-pietro"
+			}
+		}
+	}
+}

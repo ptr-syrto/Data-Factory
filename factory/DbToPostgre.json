@@ -1,0 +1,14 @@
+{
+	"name": "DbToPostgre",
+	"properties": {
+		"globalConfigurations": {
+			"PipelineBillingEnabled": "true"
+		}
+	},
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "58bcc1c0-0b72-4b93-a5aa-f8707296072d",
+		"tenantId": "18446880-3c00-4dac-b9f8-5bd1f73b5748"
+	}
+}
