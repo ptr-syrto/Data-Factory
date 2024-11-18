@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Create Hierarchy",
+				"name": "Create Hierarchy and Upload",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [
 					{
