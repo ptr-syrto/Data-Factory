@@ -17,548 +17,76 @@
 		},
 		"schema": [
 			{
-				"name": "uuid",
-				"type": "UTF8"
-			},
-			{
 				"name": "id",
 				"type": "UTF8"
 			},
 			{
-				"name": "year",
-				"type": "INT64"
-			},
-			{
-				"name": "features_calc_timestamp",
-				"type": "INT96"
-			},
-			{
-				"name": "AP1",
-				"type": "INT64"
-			},
-			{
-				"name": "AP2",
-				"type": "INT64"
-			},
-			{
-				"name": "AP2-1",
-				"type": "INT64"
-			},
-			{
-				"name": "AP2-2",
-				"type": "INT64"
-			},
-			{
-				"name": "AP2-3",
-				"type": "INT64"
-			},
-			{
-				"name": "AP3",
-				"type": "INT64"
-			},
-			{
-				"name": "AP3-1",
-				"type": "INT64"
-			},
-			{
-				"name": "AP3-2",
-				"type": "INT64"
-			},
-			{
-				"name": "AP3-2-1",
-				"type": "INT64"
-			},
-			{
-				"name": "AP3-2-2",
-				"type": "INT64"
-			},
-			{
-				"name": "AP3-3",
-				"type": "INT64"
-			},
-			{
-				"name": "AP3-4",
-				"type": "INT64"
-			},
-			{
-				"name": "AP3-5",
-				"type": "INT64"
-			},
-			{
-				"name": "AP4",
-				"type": "INT64"
-			},
-			{
-				"name": "AP",
-				"type": "INT64"
-			},
-			{
-				"name": "PP1",
-				"type": "INT64"
-			},
-			{
-				"name": "PP1-1",
-				"type": "INT64"
-			},
-			{
-				"name": "PP1-2",
-				"type": "INT64"
-			},
-			{
-				"name": "PP1-3",
-				"type": "INT64"
-			},
-			{
-				"name": "PP1-4",
-				"type": "INT64"
-			},
-			{
-				"name": "PP1-5",
-				"type": "INT64"
-			},
-			{
-				"name": "PP1-6",
-				"type": "INT64"
-			},
-			{
-				"name": "PP1-7",
-				"type": "INT64"
-			},
-			{
-				"name": "PP1-8",
-				"type": "INT64"
-			},
-			{
-				"name": "PP1-9",
-				"type": "INT64"
-			},
-			{
-				"name": "PP1-10",
-				"type": "INT64"
-			},
-			{
-				"name": "PP2",
-				"type": "INT64"
-			},
-			{
-				"name": "PP3",
-				"type": "INT64"
-			},
-			{
-				"name": "PP4",
-				"type": "INT64"
-			},
-			{
-				"name": "PP4-1",
-				"type": "INT64"
-			},
-			{
-				"name": "PP4-2",
-				"type": "INT64"
-			},
-			{
-				"name": "PP5",
-				"type": "INT64"
-			},
-			{
-				"name": "PP",
-				"type": "INT64"
-			},
-			{
-				"name": "Ecore1",
-				"type": "INT64"
-			},
-			{
-				"name": "Ecore1-1",
-				"type": "INT64"
-			},
-			{
-				"name": "Ecore1-2",
-				"type": "INT64"
-			},
-			{
-				"name": "Ecore1-3",
-				"type": "INT64"
-			},
-			{
-				"name": "Ecore1-4",
-				"type": "INT64"
-			},
-			{
-				"name": "Ecore1-5",
-				"type": "INT64"
-			},
-			{
-				"name": "Ecore1-6",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-1",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-2",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-3",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-4",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-4-1",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-4-2",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-4-3",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-4-4",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-4-5",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-5",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-5-1",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-5-2",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-5-3",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-5-4",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-6",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-7",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-8",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod1-9",
-				"type": "INT64"
-			},
-			{
-				"name": "Ecore2",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod2",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod2-1",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod2-2",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod2-2-1",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod2-2-2",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod2-2-3",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod2-2-4",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod2-3",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod2-4",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod3",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod3-1",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod3-1-1",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod3-1-2",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod3-1-3",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod3-1-4",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod3-2",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod3-2-1",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod3-2-2",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod3-2-3",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod3-2-4",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod3-3",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod3-4",
-				"type": "INT64"
-			},
-			{
-				"name": "Ecore3",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod4",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod4-1",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod4-2",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod4-3",
-				"type": "INT64"
-			},
-			{
-				"name": "Emod4-4",
-				"type": "INT64"
-			},
-			{
-				"name": "Ecore4",
-				"type": "INT64"
-			},
-			{
-				"name": "cons_cod",
+				"name": "att_ita",
 				"type": "UTF8"
 			},
 			{
-				"name": "closing_date",
-				"type": "DATE"
-			},
-			{
-				"name": "n_months",
-				"type": "INT64"
-			},
-			{
-				"name": "acc_model",
+				"name": "att_en",
 				"type": "UTF8"
 			},
 			{
-				"name": "red",
-				"type": "BOOLEAN"
-			},
-			{
-				"name": "augmented",
-				"type": "BOOLEAN"
-			},
-			{
-				"name": "has_gaps",
-				"type": "BOOLEAN"
-			},
-			{
-				"name": "n_consecutive_years",
+				"name": "ATECO",
 				"type": "INT64"
 			},
 			{
-				"name": "added_value",
+				"name": "NACE",
 				"type": "INT64"
 			},
 			{
-				"name": "EBITDA",
+				"name": "name",
+				"type": "UTF8"
+			},
+			{
+				"name": "address",
+				"type": "UTF8"
+			},
+			{
+				"name": "zip_code",
 				"type": "INT64"
 			},
 			{
-				"name": "EBIT",
+				"name": "city",
+				"type": "UTF8"
+			},
+			{
+				"name": "province",
+				"type": "UTF8"
+			},
+			{
+				"name": "region",
+				"type": "UTF8"
+			},
+			{
+				"name": "lat",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "lon",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "ateco_lv1",
 				"type": "INT64"
 			},
 			{
-				"name": "EBT",
+				"name": "ateco_lv2",
 				"type": "INT64"
 			},
 			{
-				"name": "deferred_liq",
+				"name": "ateco_lv3",
 				"type": "INT64"
 			},
 			{
-				"name": "cur_active",
+				"name": "nace_lv1",
 				"type": "INT64"
 			},
 			{
-				"name": "tot_investiments",
+				"name": "nace_lv2",
 				"type": "INT64"
-			},
-			{
-				"name": "cur_passive",
-				"type": "INT64"
-			},
-			{
-				"name": "cons_passive",
-				"type": "INT64"
-			},
-			{
-				"name": "tot_sources",
-				"type": "INT64"
-			},
-			{
-				"name": "CCnLp",
-				"type": "INT64"
-			},
-			{
-				"name": "CCn",
-				"type": "INT64"
-			},
-			{
-				"name": "op_EBIT",
-				"type": "INT64"
-			},
-			{
-				"name": "inv_CAP",
-				"type": "INT64"
-			},
-			{
-				"name": "UFCF",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "opCash_capital",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "liq_ret_activity",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "ROI",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "ROCE",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "ROE",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "ROA",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "sales_assets",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "financial_ebitda",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "prod_per_empl",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "quick_ratio",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "secondary_liq",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "self_coverage",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "global_coverage",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "rct",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "Icap",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "financial_sust",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "cap_adequacy",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "workCap_sales",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "op_leverage",
-				"type": "DOUBLE"
-			},
-			{
-				"name": "UFCF_cap",
-				"type": "DOUBLE"
 			}
 		]
 	},

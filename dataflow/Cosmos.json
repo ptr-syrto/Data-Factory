@@ -10,6 +10,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "BalanceSheets"
+				},
+				{
+					"dataset": {
+						"referenceName": "Anagraphics_Staging",
+						"type": "DatasetReference"
+					},
+					"name": "Anagraphics"
 				}
 			],
 			"sinks": [
@@ -26,8 +33,17 @@
 					"name": "Groupbyid"
 				},
 				{
-					"name": "CreateStructs",
+					"name": "CreateBSStructs",
 					"description": "Creating Struct columns\n"
+				},
+				{
+					"name": "CreateAnagraphicsStructs"
+				},
+				{
+					"name": "AnagraphicsSelect"
+				},
+				{
+					"name": "CombineAnag"
 				}
 			],
 			"scriptLines": [
@@ -173,7 +189,31 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     format: 'parquet') ~> BalanceSheets",
-				"CreateStructs aggregate(groupBy(id),",
+				"source(output(",
+				"          id as string,",
+				"          att_ita as string,",
+				"          att_en as string,",
+				"          ATECO as long,",
+				"          NACE as long,",
+				"          name as string,",
+				"          address as string,",
+				"          zip_code as long,",
+				"          city as string,",
+				"          province as string,",
+				"          region as string,",
+				"          lat as double,",
+				"          lon as double,",
+				"          ateco_lv1 as long,",
+				"          ateco_lv2 as long,",
+				"          ateco_lv3 as long,",
+				"          nace_lv1 as long,",
+				"          nace_lv2 as long",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> Anagraphics",
+				"CreateBSStructs aggregate(groupBy(id),",
 				"     financials = collect(Financials)) ~> Groupbyid",
 				"BalanceSheets derive(Financials = @(uuid=uuid,",
 				"          year=year,",
@@ -182,8 +222,39 @@
 				"          ebitda=EBITDA,",
 				"          ebit=EBIT,",
 				"          roi=ROI,",
-				"          quick_ratio=quick_ratio)) ~> CreateStructs",
-				"Groupbyid sink(allowSchemaDrift: true,",
+				"          quick_ratio=quick_ratio)) ~> CreateBSStructs",
+				"Anagraphics derive(location = @(country=\"italy\",",
+				"          region=region,",
+				"          province=province,",
+				"          city=city,",
+				"          address=address,",
+				"          zip_code=zip_code,",
+				"          lat=lat,",
+				"          lon=lon),",
+				"          ateco = @(level_1=ateco_lv1,",
+				"          level_2=ateco_lv2,",
+				"          level_3=ateco_lv3,",
+				"          complete=ATECO),",
+				"          nace = @(level_1=nace_lv1,",
+				"          level_2=nace_lv2,",
+				"          complete=NACE)) ~> CreateAnagraphicsStructs",
+				"CreateAnagraphicsStructs select(mapColumn(",
+				"          id,",
+				"          att_ita,",
+				"          att_en,",
+				"          name,",
+				"          location,",
+				"          ateco = CreateAnagraphicsStructs@ateco,",
+				"          nace = CreateAnagraphicsStructs@nace",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> AnagraphicsSelect",
+				"Groupbyid, AnagraphicsSelect join(Groupbyid@id == AnagraphicsSelect@id,",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> CombineAnag",
+				"CombineAnag sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
 				"     insertable:true,",
