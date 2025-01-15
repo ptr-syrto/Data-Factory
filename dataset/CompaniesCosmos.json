@@ -1,0 +1,15 @@
+{
+	"name": "CompaniesCosmos",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CompaniesCosmos",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {},
+		"typeProperties": {
+			"collectionName": "info-financial"
+		}
+	}
+}

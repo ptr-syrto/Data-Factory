@@ -22,7 +22,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "CosmosDb",
+						"referenceName": "CompaniesCosmos",
 						"type": "DatasetReference"
 					},
 					"name": "ToCosmos"
@@ -37,7 +37,7 @@
 					"description": "Creating Struct columns\n"
 				},
 				{
-					"name": "CombineAnag"
+					"name": "CombineInfo"
 				}
 			],
 			"scriptLines": [
@@ -182,8 +182,8 @@
 				"     joinType:'left',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> CombineAnag",
-				"CombineAnag sink(allowSchemaDrift: true,",
+				"     broadcast: 'auto')~> CombineInfo",
+				"CombineInfo sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
 				"     insertable:true,",
