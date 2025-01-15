@@ -985,8 +985,6 @@
 					{
 						"name": "Create Hierarchy and Upload",
 						"type": "ExecuteDataFlow",
-						"state": "Inactive",
-						"onInactiveMarkAs": "Succeeded",
 						"dependsOn": [
 							{
 								"activity": "Copy Financials to staging blob",
