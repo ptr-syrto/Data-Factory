@@ -86,7 +86,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureDatabricksDeltaLakeSource",
-						"query": "SELECT * FROM \ntesting.cosmos_test.financials",
+						"query": "SELECT *\nFROM testing.cosmos_test.financials\nWHERE year > (SELECT MAX(year) - 5 FROM testing.cosmos_test.financials)",
 						"exportSettings": {
 							"type": "AzureDatabricksDeltaLakeExportCommand"
 						}
