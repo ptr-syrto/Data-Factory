@@ -7,13 +7,13 @@
 				"type": "ExecuteDataFlow",
 				"dependsOn": [
 					{
-						"activity": "Copy BS to staging blob",
+						"activity": "Copy Financials to staging blob",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					},
 					{
-						"activity": "Copy Anagraphics to staging blob",
+						"activity": "Copy Company Info to staging blob",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -40,7 +40,7 @@
 				}
 			},
 			{
-				"name": "Clear BS Staging Blob",
+				"name": "Clear Financials Staging Blob",
 				"type": "Delete",
 				"dependsOn": [],
 				"policy": {
@@ -65,11 +65,11 @@
 				}
 			},
 			{
-				"name": "Copy BS to staging blob",
+				"name": "Copy Financials to staging blob",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Clear BS Staging Blob",
+						"activity": "Clear Financials Staging Blob",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -86,7 +86,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureDatabricksDeltaLakeSource",
-						"query": "SELECT * FROM \ntesting.cosmos.financials",
+						"query": "SELECT * FROM \ntesting.cosmos_test.financials",
 						"exportSettings": {
 							"type": "AzureDatabricksDeltaLakeExportCommand"
 						}
@@ -117,7 +117,7 @@
 				]
 			},
 			{
-				"name": "Clear Anagraphics Staging Blob",
+				"name": "Clear Company Info Staging Blob",
 				"type": "Delete",
 				"dependsOn": [],
 				"policy": {
@@ -142,11 +142,11 @@
 				}
 			},
 			{
-				"name": "Copy Anagraphics to staging blob",
+				"name": "Copy Company Info to staging blob",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Clear Anagraphics Staging Blob",
+						"activity": "Clear Company Info Staging Blob",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -163,7 +163,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureDatabricksDeltaLakeSource",
-						"query": "SELECT * FROM testing.cosmos.company_info",
+						"query": "SELECT * FROM testing.cosmos_test.company_info",
 						"exportSettings": {
 							"type": "AzureDatabricksDeltaLakeExportCommand"
 						}
