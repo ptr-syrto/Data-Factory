@@ -108,6 +108,12 @@
 						"referenceName": "DB_Delta_Lake",
 						"type": "DatasetReference"
 					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Company_Financial_Staging",
+						"type": "DatasetReference"
+					}
 				]
 			},
 			{
@@ -177,6 +183,12 @@
 				"inputs": [
 					{
 						"referenceName": "DB_Delta_Lake",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Company_Info_Staging",
 						"type": "DatasetReference"
 					}
 				]
