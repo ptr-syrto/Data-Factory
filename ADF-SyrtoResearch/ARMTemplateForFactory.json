@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ManualStagingBlob'"
 		},
+		"CompaniesCosmos_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CompaniesCosmos'"
+		},
 		"AzureVault_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://SyrtoVault.vault.azure.net/"
@@ -773,26 +777,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/CosmosDb')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "CosmosDb",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "CosmosDbSqlApiCollection",
-				"schema": {},
-				"typeProperties": {
-					"collectionName": "testing"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/CosmosDb')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/DB_Delta_Lake')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -924,7 +908,7 @@
 					"sinks": [
 						{
 							"dataset": {
-								"referenceName": "CosmosDb",
+								"referenceName": "CompaniesCosmos",
 								"type": "DatasetReference"
 							},
 							"name": "ToCosmos"
@@ -939,7 +923,7 @@
 							"description": "Creating Struct columns\n"
 						},
 						{
-							"name": "CombineAnag"
+							"name": "CombineInfo"
 						}
 					],
 					"scriptLines": [
@@ -1084,8 +1068,8 @@
 						"     joinType:'left',",
 						"     matchType:'exact',",
 						"     ignoreSpaces: false,",
-						"     broadcast: 'auto')~> CombineAnag",
-						"CombineAnag sink(allowSchemaDrift: true,",
+						"     broadcast: 'auto')~> CombineInfo",
+						"CombineInfo sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     deletable:false,",
 						"     insertable:true,",
@@ -1104,7 +1088,40 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Balance_Sheets_Staging')]",
 				"[concat(variables('factoryId'), '/datasets/Anagraphics_Staging')]",
-				"[concat(variables('factoryId'), '/datasets/CosmosDb')]"
+				"[concat(variables('factoryId'), '/datasets/CompaniesCosmos')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CompaniesCosmos')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "CosmosDb",
+				"typeProperties": {
+					"connectionString": "[parameters('CompaniesCosmos_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CompaniesCosmos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "CompaniesCosmos",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "CosmosDbSqlApiCollection",
+				"schema": {},
+				"typeProperties": {
+					"collectionName": "info-financial"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/CompaniesCosmos')]"
 			]
 		}
 	]

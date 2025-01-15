@@ -11,6 +11,9 @@
 		"ManualStagingBlob_accountKey": {
 			"value": ""
 		},
+		"CompaniesCosmos_connectionString": {
+			"value": ""
+		},
 		"AzureVault_properties_typeProperties_baseUrl": {
 			"value": "https://SyrtoVault.vault.azure.net/"
 		},
