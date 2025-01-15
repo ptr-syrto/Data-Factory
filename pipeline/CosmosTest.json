@@ -52,10 +52,6 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataset": {
-						"referenceName": "Balance_Sheets_Staging",
-						"type": "DatasetReference"
-					},
 					"enableLogging": false,
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
@@ -108,12 +104,6 @@
 						"referenceName": "DB_Delta_Lake",
 						"type": "DatasetReference"
 					}
-				],
-				"outputs": [
-					{
-						"referenceName": "Balance_Sheets_Staging",
-						"type": "DatasetReference"
-					}
 				]
 			},
 			{
@@ -129,10 +119,6 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataset": {
-						"referenceName": "Anagraphics_Staging",
-						"type": "DatasetReference"
-					},
 					"enableLogging": false,
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
@@ -183,12 +169,6 @@
 				"inputs": [
 					{
 						"referenceName": "DB_Delta_Lake",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "Anagraphics_Staging",
 						"type": "DatasetReference"
 					}
 				]

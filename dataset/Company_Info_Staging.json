@@ -1,0 +1,57 @@
+{
+	"name": "Company_Info_Staging",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ManualStagingBlob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "comany-info",
+				"fileSystem": "databricks-staging"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "UTF8"
+			},
+			{
+				"name": "name",
+				"type": "UTF8"
+			},
+			{
+				"name": "TIN",
+				"type": "UTF8"
+			},
+			{
+				"name": "EVN",
+				"type": "UTF8"
+			},
+			{
+				"name": "location",
+				"type": "UTF8"
+			},
+			{
+				"name": "legal",
+				"type": "UTF8"
+			},
+			{
+				"name": "nace",
+				"type": "UTF8"
+			},
+			{
+				"name": "last_available_year",
+				"type": "UTF8"
+			},
+			{
+				"name": "size",
+				"type": "UTF8"
+			}
+		]
+	}
+}

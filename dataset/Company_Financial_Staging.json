@@ -1,0 +1,453 @@
+{
+	"name": "Company_Financial_Staging",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ManualStagingBlob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "fin-data",
+				"fileSystem": "databricks-staging"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "old_id",
+				"type": "UTF8"
+			},
+			{
+				"name": "uuid",
+				"type": "UTF8"
+			},
+			{
+				"name": "year",
+				"type": "UTF8"
+			},
+			{
+				"name": "market_type2",
+				"type": "UTF8"
+			},
+			{
+				"name": "market_type1",
+				"type": "UTF8"
+			},
+			{
+				"name": "has_gaps",
+				"type": "UTF8"
+			},
+			{
+				"name": "employees",
+				"type": "UTF8"
+			},
+			{
+				"name": "acc_format",
+				"type": "UTF8"
+			},
+			{
+				"name": "added_value",
+				"type": "UTF8"
+			},
+			{
+				"name": "deferred_liq",
+				"type": "UTF8"
+			},
+			{
+				"name": "cur_passive",
+				"type": "UTF8"
+			},
+			{
+				"name": "cons_passive",
+				"type": "UTF8"
+			},
+			{
+				"name": "tot_sources",
+				"type": "UTF8"
+			},
+			{
+				"name": "op_EBIT",
+				"type": "UTF8"
+			},
+			{
+				"name": "ROE",
+				"type": "UTF8"
+			},
+			{
+				"name": "ROA",
+				"type": "UTF8"
+			},
+			{
+				"name": "sales_assets",
+				"type": "UTF8"
+			},
+			{
+				"name": "prod_per_empl",
+				"type": "UTF8"
+			},
+			{
+				"name": "self_coverage",
+				"type": "UTF8"
+			},
+			{
+				"name": "ICap",
+				"type": "UTF8"
+			},
+			{
+				"name": "financial_sust",
+				"type": "UTF8"
+			},
+			{
+				"name": "cap_adequacy",
+				"type": "UTF8"
+			},
+			{
+				"name": "CBC",
+				"type": "UTF8"
+			},
+			{
+				"name": "Personnel_Cost_to_Revenue",
+				"type": "UTF8"
+			},
+			{
+				"name": "Indeb_Ratio",
+				"type": "UTF8"
+			},
+			{
+				"name": "DSO",
+				"type": "UTF8"
+			},
+			{
+				"name": "DPO",
+				"type": "UTF8"
+			},
+			{
+				"name": "DSI",
+				"type": "UTF8"
+			},
+			{
+				"name": "Non_Curr_Liabilities_Fixed_Asset_Ratio",
+				"type": "UTF8"
+			},
+			{
+				"name": "Curr_Asset_Total_Asset_Ratio",
+				"type": "UTF8"
+			},
+			{
+				"name": "Current_Debt_Total_Debt_Ratio",
+				"type": "UTF8"
+			},
+			{
+				"name": "Cash_Curr_Asset_Ratio",
+				"type": "UTF8"
+			},
+			{
+				"name": "Market_Value",
+				"type": "UTF8"
+			},
+			{
+				"name": "Financial_Debt_Net_Worth",
+				"type": "UTF8"
+			},
+			{
+				"name": "Liquid_Cov_Fin_Debt",
+				"type": "UTF8"
+			},
+			{
+				"name": "Liquidity",
+				"type": "UTF8"
+			},
+			{
+				"name": "Revenue",
+				"type": "UTF8"
+			},
+			{
+				"name": "Costs_Raw_Materials_Services",
+				"type": "UTF8"
+			},
+			{
+				"name": "asset-liability_mismatch",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-01",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-02",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-03",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-04",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-05",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-06",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-07",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-08",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-09",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-11",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-12",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-13",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-14",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-15",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-16",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-18",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-19",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-20",
+				"type": "UTF8"
+			},
+			{
+				"name": "EBITDA",
+				"type": "UTF8"
+			},
+			{
+				"name": "cur_active",
+				"type": "UTF8"
+			},
+			{
+				"name": "CCnLp",
+				"type": "UTF8"
+			},
+			{
+				"name": "UFCF",
+				"type": "UTF8"
+			},
+			{
+				"name": "CapEx",
+				"type": "UTF8"
+			},
+			{
+				"name": "quick_ratio",
+				"type": "UTF8"
+			},
+			{
+				"name": "global_coverage",
+				"type": "UTF8"
+			},
+			{
+				"name": "RCT",
+				"type": "UTF8"
+			},
+			{
+				"name": "Cash_Ratio",
+				"type": "UTF8"
+			},
+			{
+				"name": "CCC",
+				"type": "UTF8"
+			},
+			{
+				"name": "Added_Value_Employee",
+				"type": "UTF8"
+			},
+			{
+				"name": "Industry_Contribution_GDP",
+				"type": "UTF8"
+			},
+			{
+				"name": "financial_mismatch",
+				"type": "UTF8"
+			},
+			{
+				"name": "op_EBIT_Margin",
+				"type": "UTF8"
+			},
+			{
+				"name": "Revenue_self-financing",
+				"type": "UTF8"
+			},
+			{
+				"name": "CAGR_3-years",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-17",
+				"type": "UTF8"
+			},
+			{
+				"name": "EBIT",
+				"type": "UTF8"
+			},
+			{
+				"name": "tot_investiments",
+				"type": "UTF8"
+			},
+			{
+				"name": "CCn",
+				"type": "UTF8"
+			},
+			{
+				"name": "financial_ebitda",
+				"type": "UTF8"
+			},
+			{
+				"name": "secondary_liq",
+				"type": "UTF8"
+			},
+			{
+				"name": "Ebitda_Margin",
+				"type": "UTF8"
+			},
+			{
+				"name": "Ebitda_Fin-Interest",
+				"type": "UTF8"
+			},
+			{
+				"name": "Debt_ebitda_Ratio",
+				"type": "UTF8"
+			},
+			{
+				"name": "Capex_Sales_Ratio",
+				"type": "UTF8"
+			},
+			{
+				"name": "liquidity-debt_service_cover_ratio",
+				"type": "UTF8"
+			},
+			{
+				"name": "interest_coverage_ratio",
+				"type": "UTF8"
+			},
+			{
+				"name": "EBT",
+				"type": "UTF8"
+			},
+			{
+				"name": "inv_CAP",
+				"type": "UTF8"
+			},
+			{
+				"name": "workCap_sales",
+				"type": "UTF8"
+			},
+			{
+				"name": "op_leverage",
+				"type": "UTF8"
+			},
+			{
+				"name": "ROTA",
+				"type": "UTF8"
+			},
+			{
+				"name": "Ebitda_CAGR_3-years",
+				"type": "UTF8"
+			},
+			{
+				"name": "Ebit_Margin",
+				"type": "UTF8"
+			},
+			{
+				"name": "FE-10",
+				"type": "UTF8"
+			},
+			{
+				"name": "ROI",
+				"type": "UTF8"
+			},
+			{
+				"name": "ROCE",
+				"type": "UTF8"
+			},
+			{
+				"name": "UFCF_cap",
+				"type": "UTF8"
+			},
+			{
+				"name": "opCash_capital",
+				"type": "UTF8"
+			},
+			{
+				"name": "liq_ret_activity",
+				"type": "UTF8"
+			},
+			{
+				"name": "net_return_on_invested_capital",
+				"type": "UTF8"
+			},
+			{
+				"name": "Zp-scoreltman",
+				"type": "UTF8"
+			},
+			{
+				"name": "Zpp-scoreltman",
+				"type": "UTF8"
+			},
+			{
+				"name": "Value_Creation_Index",
+				"type": "UTF8"
+			},
+			{
+				"name": "revenue_growth",
+				"type": "UTF8"
+			},
+			{
+				"name": "OverIndebtedness_Ratio",
+				"type": "UTF8"
+			},
+			{
+				"name": "size",
+				"type": "UTF8"
+			},
+			{
+				"name": "macro_area",
+				"type": "UTF8"
+			},
+			{
+				"name": "market_area",
+				"type": "UTF8"
+			},
+			{
+				"name": "id",
+				"type": "UTF8"
+			}
+		]
+	}
+}
