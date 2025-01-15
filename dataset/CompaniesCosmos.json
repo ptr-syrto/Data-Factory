@@ -9,7 +9,7 @@
 		"type": "CosmosDbSqlApiCollection",
 		"schema": {},
 		"typeProperties": {
-			"collectionName": "info-financial"
+			"collectionName": "financial-info"
 		}
 	}
 }

@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "fin-data",
-				"fileSystem": "databricks-staging"
+				"folderPath": "financials",
+				"fileSystem": "databricks"
 			},
 			"compressionCodec": "snappy"
 		},

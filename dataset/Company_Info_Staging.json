@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "company-info",
-				"fileSystem": "databricks-staging"
+				"fileSystem": "databricks"
 			},
 			"compressionCodec": "snappy"
 		},
