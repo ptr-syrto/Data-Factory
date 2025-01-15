@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "financials",
-				"fileSystem": "db-staging"
+				"fileSystem": "databricks-staging"
 			},
 			"compressionCodec": "snappy"
 		},
