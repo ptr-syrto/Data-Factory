@@ -191,7 +191,7 @@
 				"     upsertable:true,",
 				"     format: 'document',",
 				"     partitionKey: ['/id'],",
-				"     throughput: 5000,",
+				"     throughput: 4000,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     preCommands: [],",
