@@ -87,7 +87,7 @@
 						"type": "Copy",
 						"dependsOn": [
 							{
-								"activity": "Clear Financials Staging 1",
+								"activity": "Clear Financials Staging 2",
 								"dependencyConditions": [
 									"Completed"
 								]
@@ -141,7 +141,7 @@
 						"type": "Copy",
 						"dependsOn": [
 							{
-								"activity": "Clear Company Info Staging Blob 1",
+								"activity": "Clear Company Info Staging 2",
 								"dependencyConditions": [
 									"Completed"
 								]
@@ -191,9 +191,16 @@
 						]
 					},
 					{
-						"name": "Clear Financials Staging 1",
+						"name": "Clear Financials Staging 2",
 						"type": "Delete",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "Clear Financials Staging 1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "0.12:00:00",
 							"retry": 0,
@@ -218,7 +225,67 @@
 						}
 					},
 					{
-						"name": "Clear Company Info Staging Blob 1",
+						"name": "Clear Company Info Staging 2",
+						"type": "Delete",
+						"dependsOn": [
+							{
+								"activity": "Clear Company Info Staging 1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "Company_Info_Staging",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"enableLogging": false,
+							"storeSettings": {
+								"type": "AzureBlobFSReadSettings",
+								"recursive": true,
+								"wildcardFileName": "*",
+								"enablePartitionDiscovery": false
+							}
+						}
+					},
+					{
+						"name": "Clear Financials Staging 1",
+						"type": "Delete",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "Company_Financial_Staging",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"enableLogging": false,
+							"storeSettings": {
+								"type": "AzureBlobFSReadSettings",
+								"recursive": true,
+								"enablePartitionDiscovery": false
+							}
+						}
+					},
+					{
+						"name": "Clear Company Info Staging 1",
 						"type": "Delete",
 						"dependsOn": [],
 						"policy": {
@@ -239,7 +306,6 @@
 							"storeSettings": {
 								"type": "AzureBlobFSReadSettings",
 								"recursive": true,
-								"wildcardFileName": "*",
 								"enablePartitionDiscovery": false
 							}
 						}
