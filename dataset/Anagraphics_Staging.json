@@ -21,72 +21,36 @@
 				"type": "UTF8"
 			},
 			{
-				"name": "att_ita",
-				"type": "UTF8"
-			},
-			{
-				"name": "att_en",
-				"type": "UTF8"
-			},
-			{
-				"name": "ATECO",
-				"type": "INT64"
-			},
-			{
-				"name": "NACE",
-				"type": "INT64"
-			},
-			{
 				"name": "name",
 				"type": "UTF8"
 			},
 			{
-				"name": "address",
+				"name": "TIN",
 				"type": "UTF8"
 			},
 			{
-				"name": "zip_code",
-				"type": "INT64"
-			},
-			{
-				"name": "city",
+				"name": "EVN",
 				"type": "UTF8"
 			},
 			{
-				"name": "province",
+				"name": "location",
 				"type": "UTF8"
 			},
 			{
-				"name": "region",
+				"name": "legal",
 				"type": "UTF8"
 			},
 			{
-				"name": "lat",
-				"type": "DOUBLE"
+				"name": "nace",
+				"type": "UTF8"
 			},
 			{
-				"name": "lon",
-				"type": "DOUBLE"
+				"name": "last_available_year",
+				"type": "UTF8"
 			},
 			{
-				"name": "ateco_lv1",
-				"type": "INT64"
-			},
-			{
-				"name": "ateco_lv2",
-				"type": "INT64"
-			},
-			{
-				"name": "ateco_lv3",
-				"type": "INT64"
-			},
-			{
-				"name": "nace_lv1",
-				"type": "INT64"
-			},
-			{
-				"name": "nace_lv2",
-				"type": "INT64"
+				"name": "size",
+				"type": "UTF8"
 			}
 		]
 	},
