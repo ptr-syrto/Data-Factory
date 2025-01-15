@@ -86,7 +86,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureDatabricksDeltaLakeSource",
-						"query": "SELECT * FROM \ntesting.cosmos.financials\nLIMIT 1000",
+						"query": "SELECT * FROM \ntesting.cosmos.financials",
 						"exportSettings": {
 							"type": "AzureDatabricksDeltaLakeExportCommand"
 						}
@@ -163,7 +163,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureDatabricksDeltaLakeSource",
-						"query": "SELECT * FROM testing.cosmos.company_info\nLIMIT 1000",
+						"query": "SELECT * FROM testing.cosmos.company_info",
 						"exportSettings": {
 							"type": "AzureDatabricksDeltaLakeExportCommand"
 						}
