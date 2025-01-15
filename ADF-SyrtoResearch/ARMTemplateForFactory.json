@@ -263,32 +263,6 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Clear Financials Staging Blob",
-						"type": "Delete",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataset": {
-								"referenceName": "Company_Financial_Staging",
-								"type": "DatasetReference",
-								"parameters": {}
-							},
-							"enableLogging": false,
-							"storeSettings": {
-								"type": "AzureBlobFSReadSettings",
-								"recursive": true,
-								"enablePartitionDiscovery": false
-							}
-						}
-					},
-					{
 						"name": "Clear Company Info Staging Blob",
 						"type": "Delete",
 						"dependsOn": [],
@@ -313,6 +287,32 @@
 								"enablePartitionDiscovery": false
 							}
 						}
+					},
+					{
+						"name": "Clear Company Financials",
+						"type": "Delete",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "Company_Financial_Staging",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"enableLogging": false,
+							"storeSettings": {
+								"type": "AzureBlobFSReadSettings",
+								"recursive": true,
+								"enablePartitionDiscovery": false
+							}
+						}
 					}
 				],
 				"policy": {
@@ -322,8 +322,8 @@
 				"lastPublishTime": "2024-11-17T11:44:30Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Company_Financial_Staging')]",
-				"[concat(variables('factoryId'), '/datasets/Company_Info_Staging')]"
+				"[concat(variables('factoryId'), '/datasets/Company_Info_Staging')]",
+				"[concat(variables('factoryId'), '/datasets/Company_Financial_Staging')]"
 			]
 		},
 		{
