@@ -319,7 +319,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"folderPath": "company_info",
-						"fileSystem": "db-staging"
+						"fileSystem": "databricks-staging"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -381,7 +381,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"folderPath": "financials",
-						"fileSystem": "db-staging"
+						"fileSystem": "databricks-staging"
 					},
 					"compressionCodec": "snappy"
 				},
