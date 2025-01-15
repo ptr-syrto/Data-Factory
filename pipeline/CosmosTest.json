@@ -52,6 +52,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataset": {
+						"referenceName": "Company_Financial_Staging",
+						"type": "DatasetReference"
+					},
 					"enableLogging": false,
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
@@ -119,6 +123,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataset": {
+						"referenceName": "Company_Info_Staging",
+						"type": "DatasetReference"
+					},
 					"enableLogging": false,
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
