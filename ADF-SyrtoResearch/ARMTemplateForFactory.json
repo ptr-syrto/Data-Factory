@@ -277,72 +277,36 @@
 						"type": "UTF8"
 					},
 					{
-						"name": "att_ita",
-						"type": "UTF8"
-					},
-					{
-						"name": "att_en",
-						"type": "UTF8"
-					},
-					{
-						"name": "ATECO",
-						"type": "INT64"
-					},
-					{
-						"name": "NACE",
-						"type": "INT64"
-					},
-					{
 						"name": "name",
 						"type": "UTF8"
 					},
 					{
-						"name": "address",
+						"name": "TIN",
 						"type": "UTF8"
 					},
 					{
-						"name": "zip_code",
-						"type": "INT64"
-					},
-					{
-						"name": "city",
+						"name": "EVN",
 						"type": "UTF8"
 					},
 					{
-						"name": "province",
+						"name": "location",
 						"type": "UTF8"
 					},
 					{
-						"name": "region",
+						"name": "legal",
 						"type": "UTF8"
 					},
 					{
-						"name": "lat",
-						"type": "DOUBLE"
+						"name": "nace",
+						"type": "UTF8"
 					},
 					{
-						"name": "lon",
-						"type": "DOUBLE"
+						"name": "last_available_year",
+						"type": "UTF8"
 					},
 					{
-						"name": "ateco_lv1",
-						"type": "INT64"
-					},
-					{
-						"name": "ateco_lv2",
-						"type": "INT64"
-					},
-					{
-						"name": "ateco_lv3",
-						"type": "INT64"
-					},
-					{
-						"name": "nace_lv1",
-						"type": "INT64"
-					},
-					{
-						"name": "nace_lv2",
-						"type": "INT64"
+						"name": "size",
+						"type": "UTF8"
 					}
 				]
 			},
@@ -371,548 +335,436 @@
 				},
 				"schema": [
 					{
+						"name": "old_id",
+						"type": "UTF8"
+					},
+					{
 						"name": "uuid",
+						"type": "UTF8"
+					},
+					{
+						"name": "year",
+						"type": "UTF8"
+					},
+					{
+						"name": "market_type2",
+						"type": "UTF8"
+					},
+					{
+						"name": "market_type1",
+						"type": "UTF8"
+					},
+					{
+						"name": "has_gaps",
+						"type": "UTF8"
+					},
+					{
+						"name": "employees",
+						"type": "UTF8"
+					},
+					{
+						"name": "acc_format",
+						"type": "UTF8"
+					},
+					{
+						"name": "added_value",
+						"type": "UTF8"
+					},
+					{
+						"name": "deferred_liq",
+						"type": "UTF8"
+					},
+					{
+						"name": "cur_passive",
+						"type": "UTF8"
+					},
+					{
+						"name": "cons_passive",
+						"type": "UTF8"
+					},
+					{
+						"name": "tot_sources",
+						"type": "UTF8"
+					},
+					{
+						"name": "op_EBIT",
+						"type": "UTF8"
+					},
+					{
+						"name": "ROE",
+						"type": "UTF8"
+					},
+					{
+						"name": "ROA",
+						"type": "UTF8"
+					},
+					{
+						"name": "sales_assets",
+						"type": "UTF8"
+					},
+					{
+						"name": "prod_per_empl",
+						"type": "UTF8"
+					},
+					{
+						"name": "self_coverage",
+						"type": "UTF8"
+					},
+					{
+						"name": "ICap",
+						"type": "UTF8"
+					},
+					{
+						"name": "financial_sust",
+						"type": "UTF8"
+					},
+					{
+						"name": "cap_adequacy",
+						"type": "UTF8"
+					},
+					{
+						"name": "CBC",
+						"type": "UTF8"
+					},
+					{
+						"name": "Personnel_Cost_to_Revenue",
+						"type": "UTF8"
+					},
+					{
+						"name": "Indeb_Ratio",
+						"type": "UTF8"
+					},
+					{
+						"name": "DSO",
+						"type": "UTF8"
+					},
+					{
+						"name": "DPO",
+						"type": "UTF8"
+					},
+					{
+						"name": "DSI",
+						"type": "UTF8"
+					},
+					{
+						"name": "Non_Curr_Liabilities_Fixed_Asset_Ratio",
+						"type": "UTF8"
+					},
+					{
+						"name": "Curr_Asset_Total_Asset_Ratio",
+						"type": "UTF8"
+					},
+					{
+						"name": "Current_Debt_Total_Debt_Ratio",
+						"type": "UTF8"
+					},
+					{
+						"name": "Cash_Curr_Asset_Ratio",
+						"type": "UTF8"
+					},
+					{
+						"name": "Market_Value",
+						"type": "UTF8"
+					},
+					{
+						"name": "Financial_Debt_Net_Worth",
+						"type": "UTF8"
+					},
+					{
+						"name": "Liquid_Cov_Fin_Debt",
+						"type": "UTF8"
+					},
+					{
+						"name": "Liquidity",
+						"type": "UTF8"
+					},
+					{
+						"name": "Revenue",
+						"type": "UTF8"
+					},
+					{
+						"name": "Costs_Raw_Materials_Services",
+						"type": "UTF8"
+					},
+					{
+						"name": "asset-liability_mismatch",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-01",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-02",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-03",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-04",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-05",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-06",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-07",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-08",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-09",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-11",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-12",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-13",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-14",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-15",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-16",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-18",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-19",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-20",
+						"type": "UTF8"
+					},
+					{
+						"name": "EBITDA",
+						"type": "UTF8"
+					},
+					{
+						"name": "cur_active",
+						"type": "UTF8"
+					},
+					{
+						"name": "CCnLp",
+						"type": "UTF8"
+					},
+					{
+						"name": "UFCF",
+						"type": "UTF8"
+					},
+					{
+						"name": "CapEx",
+						"type": "UTF8"
+					},
+					{
+						"name": "quick_ratio",
+						"type": "UTF8"
+					},
+					{
+						"name": "global_coverage",
+						"type": "UTF8"
+					},
+					{
+						"name": "RCT",
+						"type": "UTF8"
+					},
+					{
+						"name": "Cash_Ratio",
+						"type": "UTF8"
+					},
+					{
+						"name": "CCC",
+						"type": "UTF8"
+					},
+					{
+						"name": "Added_Value_Employee",
+						"type": "UTF8"
+					},
+					{
+						"name": "Industry_Contribution_GDP",
+						"type": "UTF8"
+					},
+					{
+						"name": "financial_mismatch",
+						"type": "UTF8"
+					},
+					{
+						"name": "op_EBIT_Margin",
+						"type": "UTF8"
+					},
+					{
+						"name": "Revenue_self-financing",
+						"type": "UTF8"
+					},
+					{
+						"name": "CAGR_3-years",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-17",
+						"type": "UTF8"
+					},
+					{
+						"name": "EBIT",
+						"type": "UTF8"
+					},
+					{
+						"name": "tot_investiments",
+						"type": "UTF8"
+					},
+					{
+						"name": "CCn",
+						"type": "UTF8"
+					},
+					{
+						"name": "financial_ebitda",
+						"type": "UTF8"
+					},
+					{
+						"name": "secondary_liq",
+						"type": "UTF8"
+					},
+					{
+						"name": "Ebitda_Margin",
+						"type": "UTF8"
+					},
+					{
+						"name": "Ebitda_Fin-Interest",
+						"type": "UTF8"
+					},
+					{
+						"name": "Debt_ebitda_Ratio",
+						"type": "UTF8"
+					},
+					{
+						"name": "Capex_Sales_Ratio",
+						"type": "UTF8"
+					},
+					{
+						"name": "liquidity-debt_service_cover_ratio",
+						"type": "UTF8"
+					},
+					{
+						"name": "interest_coverage_ratio",
+						"type": "UTF8"
+					},
+					{
+						"name": "EBT",
+						"type": "UTF8"
+					},
+					{
+						"name": "inv_CAP",
+						"type": "UTF8"
+					},
+					{
+						"name": "workCap_sales",
+						"type": "UTF8"
+					},
+					{
+						"name": "op_leverage",
+						"type": "UTF8"
+					},
+					{
+						"name": "ROTA",
+						"type": "UTF8"
+					},
+					{
+						"name": "Ebitda_CAGR_3-years",
+						"type": "UTF8"
+					},
+					{
+						"name": "Ebit_Margin",
+						"type": "UTF8"
+					},
+					{
+						"name": "FE-10",
+						"type": "UTF8"
+					},
+					{
+						"name": "ROI",
+						"type": "UTF8"
+					},
+					{
+						"name": "ROCE",
+						"type": "UTF8"
+					},
+					{
+						"name": "UFCF_cap",
+						"type": "UTF8"
+					},
+					{
+						"name": "opCash_capital",
+						"type": "UTF8"
+					},
+					{
+						"name": "liq_ret_activity",
+						"type": "UTF8"
+					},
+					{
+						"name": "net_return_on_invested_capital",
+						"type": "UTF8"
+					},
+					{
+						"name": "Zp-scoreltman",
+						"type": "UTF8"
+					},
+					{
+						"name": "Zpp-scoreltman",
+						"type": "UTF8"
+					},
+					{
+						"name": "Value_Creation_Index",
+						"type": "UTF8"
+					},
+					{
+						"name": "revenue_growth",
+						"type": "UTF8"
+					},
+					{
+						"name": "OverIndebtedness_Ratio",
+						"type": "UTF8"
+					},
+					{
+						"name": "size",
+						"type": "UTF8"
+					},
+					{
+						"name": "macro_area",
+						"type": "UTF8"
+					},
+					{
+						"name": "market_area",
 						"type": "UTF8"
 					},
 					{
 						"name": "id",
 						"type": "UTF8"
-					},
-					{
-						"name": "year",
-						"type": "INT64"
-					},
-					{
-						"name": "features_calc_timestamp",
-						"type": "INT96"
-					},
-					{
-						"name": "AP1",
-						"type": "INT64"
-					},
-					{
-						"name": "AP2",
-						"type": "INT64"
-					},
-					{
-						"name": "AP2-1",
-						"type": "INT64"
-					},
-					{
-						"name": "AP2-2",
-						"type": "INT64"
-					},
-					{
-						"name": "AP2-3",
-						"type": "INT64"
-					},
-					{
-						"name": "AP3",
-						"type": "INT64"
-					},
-					{
-						"name": "AP3-1",
-						"type": "INT64"
-					},
-					{
-						"name": "AP3-2",
-						"type": "INT64"
-					},
-					{
-						"name": "AP3-2-1",
-						"type": "INT64"
-					},
-					{
-						"name": "AP3-2-2",
-						"type": "INT64"
-					},
-					{
-						"name": "AP3-3",
-						"type": "INT64"
-					},
-					{
-						"name": "AP3-4",
-						"type": "INT64"
-					},
-					{
-						"name": "AP3-5",
-						"type": "INT64"
-					},
-					{
-						"name": "AP4",
-						"type": "INT64"
-					},
-					{
-						"name": "AP",
-						"type": "INT64"
-					},
-					{
-						"name": "PP1",
-						"type": "INT64"
-					},
-					{
-						"name": "PP1-1",
-						"type": "INT64"
-					},
-					{
-						"name": "PP1-2",
-						"type": "INT64"
-					},
-					{
-						"name": "PP1-3",
-						"type": "INT64"
-					},
-					{
-						"name": "PP1-4",
-						"type": "INT64"
-					},
-					{
-						"name": "PP1-5",
-						"type": "INT64"
-					},
-					{
-						"name": "PP1-6",
-						"type": "INT64"
-					},
-					{
-						"name": "PP1-7",
-						"type": "INT64"
-					},
-					{
-						"name": "PP1-8",
-						"type": "INT64"
-					},
-					{
-						"name": "PP1-9",
-						"type": "INT64"
-					},
-					{
-						"name": "PP1-10",
-						"type": "INT64"
-					},
-					{
-						"name": "PP2",
-						"type": "INT64"
-					},
-					{
-						"name": "PP3",
-						"type": "INT64"
-					},
-					{
-						"name": "PP4",
-						"type": "INT64"
-					},
-					{
-						"name": "PP4-1",
-						"type": "INT64"
-					},
-					{
-						"name": "PP4-2",
-						"type": "INT64"
-					},
-					{
-						"name": "PP5",
-						"type": "INT64"
-					},
-					{
-						"name": "PP",
-						"type": "INT64"
-					},
-					{
-						"name": "Ecore1",
-						"type": "INT64"
-					},
-					{
-						"name": "Ecore1-1",
-						"type": "INT64"
-					},
-					{
-						"name": "Ecore1-2",
-						"type": "INT64"
-					},
-					{
-						"name": "Ecore1-3",
-						"type": "INT64"
-					},
-					{
-						"name": "Ecore1-4",
-						"type": "INT64"
-					},
-					{
-						"name": "Ecore1-5",
-						"type": "INT64"
-					},
-					{
-						"name": "Ecore1-6",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-1",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-2",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-3",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-4",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-4-1",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-4-2",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-4-3",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-4-4",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-4-5",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-5",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-5-1",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-5-2",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-5-3",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-5-4",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-6",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-7",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-8",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod1-9",
-						"type": "INT64"
-					},
-					{
-						"name": "Ecore2",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod2",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod2-1",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod2-2",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod2-2-1",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod2-2-2",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod2-2-3",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod2-2-4",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod2-3",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod2-4",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod3",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod3-1",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod3-1-1",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod3-1-2",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod3-1-3",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod3-1-4",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod3-2",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod3-2-1",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod3-2-2",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod3-2-3",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod3-2-4",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod3-3",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod3-4",
-						"type": "INT64"
-					},
-					{
-						"name": "Ecore3",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod4",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod4-1",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod4-2",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod4-3",
-						"type": "INT64"
-					},
-					{
-						"name": "Emod4-4",
-						"type": "INT64"
-					},
-					{
-						"name": "Ecore4",
-						"type": "INT64"
-					},
-					{
-						"name": "cons_cod",
-						"type": "UTF8"
-					},
-					{
-						"name": "closing_date",
-						"type": "DATE"
-					},
-					{
-						"name": "n_months",
-						"type": "INT64"
-					},
-					{
-						"name": "acc_model",
-						"type": "UTF8"
-					},
-					{
-						"name": "red",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "augmented",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "has_gaps",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "n_consecutive_years",
-						"type": "INT64"
-					},
-					{
-						"name": "added_value",
-						"type": "INT64"
-					},
-					{
-						"name": "EBITDA",
-						"type": "INT64"
-					},
-					{
-						"name": "EBIT",
-						"type": "INT64"
-					},
-					{
-						"name": "EBT",
-						"type": "INT64"
-					},
-					{
-						"name": "deferred_liq",
-						"type": "INT64"
-					},
-					{
-						"name": "cur_active",
-						"type": "INT64"
-					},
-					{
-						"name": "tot_investiments",
-						"type": "INT64"
-					},
-					{
-						"name": "cur_passive",
-						"type": "INT64"
-					},
-					{
-						"name": "cons_passive",
-						"type": "INT64"
-					},
-					{
-						"name": "tot_sources",
-						"type": "INT64"
-					},
-					{
-						"name": "CCnLp",
-						"type": "INT64"
-					},
-					{
-						"name": "CCn",
-						"type": "INT64"
-					},
-					{
-						"name": "op_EBIT",
-						"type": "INT64"
-					},
-					{
-						"name": "inv_CAP",
-						"type": "INT64"
-					},
-					{
-						"name": "UFCF",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "opCash_capital",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "liq_ret_activity",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "ROI",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "ROCE",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "ROE",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "ROA",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "sales_assets",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "financial_ebitda",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "prod_per_empl",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "quick_ratio",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "secondary_liq",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "self_coverage",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "global_coverage",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "rct",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "Icap",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "financial_sust",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "cap_adequacy",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "workCap_sales",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "op_leverage",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "UFCF_cap",
-						"type": "DOUBLE"
 					}
 				]
 			},
@@ -1092,176 +944,142 @@
 					],
 					"scriptLines": [
 						"source(output(",
+						"          old_id as string,",
 						"          uuid as string,",
-						"          id as string,",
-						"          year as long,",
-						"          features_calc_timestamp as timestamp,",
-						"          AP1 as long,",
-						"          AP2 as long,",
-						"          {AP2-1} as long,",
-						"          {AP2-2} as long,",
-						"          {AP2-3} as long,",
-						"          AP3 as long,",
-						"          {AP3-1} as long,",
-						"          {AP3-2} as long,",
-						"          {AP3-2-1} as long,",
-						"          {AP3-2-2} as long,",
-						"          {AP3-3} as long,",
-						"          {AP3-4} as long,",
-						"          {AP3-5} as long,",
-						"          AP4 as long,",
-						"          AP as long,",
-						"          PP1 as long,",
-						"          {PP1-1} as long,",
-						"          {PP1-2} as long,",
-						"          {PP1-3} as long,",
-						"          {PP1-4} as long,",
-						"          {PP1-5} as long,",
-						"          {PP1-6} as long,",
-						"          {PP1-7} as long,",
-						"          {PP1-8} as long,",
-						"          {PP1-9} as long,",
-						"          {PP1-10} as long,",
-						"          PP2 as long,",
-						"          PP3 as long,",
-						"          PP4 as long,",
-						"          {PP4-1} as long,",
-						"          {PP4-2} as long,",
-						"          PP5 as long,",
-						"          PP as long,",
-						"          Ecore1 as long,",
-						"          {Ecore1-1} as long,",
-						"          {Ecore1-2} as long,",
-						"          {Ecore1-3} as long,",
-						"          {Ecore1-4} as long,",
-						"          {Ecore1-5} as long,",
-						"          {Ecore1-6} as long,",
-						"          Emod1 as long,",
-						"          {Emod1-1} as long,",
-						"          {Emod1-2} as long,",
-						"          {Emod1-3} as long,",
-						"          {Emod1-4} as long,",
-						"          {Emod1-4-1} as long,",
-						"          {Emod1-4-2} as long,",
-						"          {Emod1-4-3} as long,",
-						"          {Emod1-4-4} as long,",
-						"          {Emod1-4-5} as long,",
-						"          {Emod1-5} as long,",
-						"          {Emod1-5-1} as long,",
-						"          {Emod1-5-2} as long,",
-						"          {Emod1-5-3} as long,",
-						"          {Emod1-5-4} as long,",
-						"          {Emod1-6} as long,",
-						"          {Emod1-7} as long,",
-						"          {Emod1-8} as long,",
-						"          {Emod1-9} as long,",
-						"          Ecore2 as long,",
-						"          Emod2 as long,",
-						"          {Emod2-1} as long,",
-						"          {Emod2-2} as long,",
-						"          {Emod2-2-1} as long,",
-						"          {Emod2-2-2} as long,",
-						"          {Emod2-2-3} as long,",
-						"          {Emod2-2-4} as long,",
-						"          {Emod2-3} as long,",
-						"          {Emod2-4} as long,",
-						"          Emod3 as long,",
-						"          {Emod3-1} as long,",
-						"          {Emod3-1-1} as long,",
-						"          {Emod3-1-2} as long,",
-						"          {Emod3-1-3} as long,",
-						"          {Emod3-1-4} as long,",
-						"          {Emod3-2} as long,",
-						"          {Emod3-2-1} as long,",
-						"          {Emod3-2-2} as long,",
-						"          {Emod3-2-3} as long,",
-						"          {Emod3-2-4} as long,",
-						"          {Emod3-3} as long,",
-						"          {Emod3-4} as long,",
-						"          Ecore3 as long,",
-						"          Emod4 as long,",
-						"          {Emod4-1} as long,",
-						"          {Emod4-2} as long,",
-						"          {Emod4-3} as long,",
-						"          {Emod4-4} as long,",
-						"          Ecore4 as long,",
-						"          cons_cod as string,",
-						"          closing_date as date,",
-						"          n_months as long,",
-						"          acc_model as string,",
-						"          red as boolean,",
-						"          augmented as boolean,",
+						"          year as integer,",
+						"          market_type2 as (section as string, market_area as string, size as string),",
+						"          market_type1 as (NACE as long, market_area as string, size as string),",
 						"          has_gaps as boolean,",
-						"          n_consecutive_years as long,",
-						"          added_value as long,",
-						"          EBITDA as long,",
-						"          EBIT as long,",
-						"          EBT as long,",
-						"          deferred_liq as long,",
-						"          cur_active as long,",
-						"          tot_investiments as long,",
-						"          cur_passive as long,",
-						"          cons_passive as long,",
-						"          tot_sources as long,",
-						"          CCnLp as long,",
-						"          CCn as long,",
-						"          op_EBIT as long,",
-						"          inv_CAP as long,",
-						"          UFCF as double,",
-						"          opCash_capital as double,",
-						"          liq_ret_activity as double,",
-						"          ROI as double,",
-						"          ROCE as double,",
-						"          ROE as double,",
-						"          ROA as double,",
-						"          sales_assets as double,",
-						"          financial_ebitda as double,",
-						"          prod_per_empl as double,",
-						"          quick_ratio as double,",
-						"          secondary_liq as double,",
-						"          self_coverage as double,",
-						"          global_coverage as double,",
-						"          rct as double,",
-						"          Icap as double,",
-						"          financial_sust as double,",
-						"          cap_adequacy as double,",
-						"          workCap_sales as double,",
-						"          op_leverage as double,",
-						"          UFCF_cap as double",
-						"     ),",
-						"     allowSchemaDrift: false,",
-						"     validateSchema: false,",
-						"     ignoreNoFilesFound: false,",
-						"     format: 'parquet') ~> BalanceSheets",
-						"source(output(",
-						"          id as string,",
-						"          att_ita as string,",
-						"          att_en as string,",
-						"          ATECO as long,",
-						"          NACE as long,",
-						"          name as string,",
-						"          address as string,",
-						"          zip_code as long,",
-						"          city as string,",
-						"          province as string,",
-						"          region as string,",
-						"          lat as double,",
-						"          lon as double,",
-						"          ateco_lv1 as long,",
-						"          ateco_lv2 as long,",
-						"          ateco_lv3 as long,",
-						"          nace_lv1 as long,",
-						"          nace_lv2 as long",
+						"          employees as long,",
+						"          acc_format as string,",
+						"          added_value as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          deferred_liq as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          cur_passive as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          cons_passive as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          tot_sources as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          op_EBIT as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          ROE as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          ROA as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          sales_assets as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          prod_per_empl as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          self_coverage as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          ICap as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          financial_sust as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          cap_adequacy as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          CBC as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Personnel_Cost_to_Revenue as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Indeb_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          DSO as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          DPO as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          DSI as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Non_Curr_Liabilities_Fixed_Asset_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Curr_Asset_Total_Asset_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Current_Debt_Total_Debt_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Cash_Curr_Asset_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Market_Value as (value as long, previous as long, year_change as double, market_diff as double, market as long, score as byte),",
+						"          Financial_Debt_Net_Worth as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Liquid_Cov_Fin_Debt as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Liquidity as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Revenue as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Costs_Raw_Materials_Services as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {asset-liability_mismatch} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-01} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-02} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-03} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-04} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-05} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-06} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-07} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-08} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-09} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-11} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-12} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-13} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-14} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-15} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-16} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-18} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-19} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-20} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          EBITDA as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          cur_active as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          CCnLp as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          UFCF as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          CapEx as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          quick_ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          global_coverage as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          RCT as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Cash_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          CCC as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Added_Value_Employee as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Industry_Contribution_GDP as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          financial_mismatch as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          op_EBIT_Margin as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {Revenue_self-financing} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {CAGR_3-years} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-17} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          EBIT as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          tot_investiments as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          CCn as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          financial_ebitda as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          secondary_liq as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Ebitda_Margin as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {Ebitda_Fin-Interest} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Debt_ebitda_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Capex_Sales_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {liquidity-debt_service_cover_ratio} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          interest_coverage_ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          EBT as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          inv_CAP as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          workCap_sales as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          op_leverage as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          ROTA as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {Ebitda_CAGR_3-years} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Ebit_Margin as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {FE-10} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
+						"          ROI as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          ROCE as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          UFCF_cap as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          opCash_capital as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          liq_ret_activity as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          net_return_on_invested_capital as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {Zp-scoreltman} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          {Zpp-scoreltman} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          Value_Creation_Index as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          revenue_growth as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          OverIndebtedness_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
+						"          size as string,",
+						"          macro_area as string,",
+						"          market_area as string,",
+						"          id as integer",
 						"     ),",
 						"     allowSchemaDrift: true,",
 						"     validateSchema: false,",
+						"     inferDriftedColumnTypes: true,",
+						"     ignoreNoFilesFound: false,",
+						"     format: 'parquet') ~> BalanceSheets",
+						"source(output(",
+						"          id as integer,",
+						"          name as string,",
+						"          TIN as string,",
+						"          EVN as string,",
+						"          location as (address as (addr_line as string, zip as string, city as string, country as string, country_code as string), coords as (lat as double, lon as double), nuts as (nuts_1 as string, nuts_2 as string, nuts_3 as string)),",
+						"          legal as (status as string, founding_date as string),",
+						"          nace as (section as string, nace_lv1 as string, nace_lv2 as string, nace_code as string),",
+						"          last_available_year as integer,",
+						"          size as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     inferDriftedColumnTypes: true,",
 						"     ignoreNoFilesFound: false,",
 						"     format: 'parquet') ~> Anagraphics",
 						"CreateBSStructs aggregate(groupBy(id),",
 						"     financials = collect(Financials)) ~> Groupbyid",
 						"BalanceSheets derive(Financials = @(uuid=uuid,",
 						"          year=year,",
-						"          ebit=EBIT)) ~> CreateBSStructs",
+						"          EBIT=EBIT,",
+						"          EBITDA=EBITDA)) ~> CreateBSStructs",
 						"Groupbyid, Anagraphics join(Groupbyid@id == Anagraphics@id,",
 						"     joinType:'left',",
 						"     matchType:'exact',",
