@@ -5,13 +5,13 @@
 		"factoryName": {
 			"value": "ADF-SyrtoResearch"
 		},
+		"CompaniesCosmos_connectionString": {
+			"value": ""
+		},
 		"CosmosDb_connectionString": {
 			"value": ""
 		},
 		"ManualStagingBlob_accountKey": {
-			"value": ""
-		},
-		"CompaniesCosmos_connectionString": {
 			"value": ""
 		},
 		"AzureVault_properties_typeProperties_baseUrl": {

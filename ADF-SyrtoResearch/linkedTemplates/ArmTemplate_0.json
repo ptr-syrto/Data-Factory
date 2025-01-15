@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "ADF-SyrtoResearch"
 		},
+		"CompaniesCosmos_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CompaniesCosmos'"
+		},
 		"CosmosDb_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'CosmosDb'"
@@ -14,10 +18,6 @@
 		"ManualStagingBlob_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ManualStagingBlob'"
-		},
-		"CompaniesCosmos_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'CompaniesCosmos'"
 		},
 		"AzureVault_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -41,6 +41,19 @@
 				"type": "AzureKeyVault",
 				"typeProperties": {
 					"baseUrl": "[parameters('AzureVault_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CompaniesCosmos')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "CosmosDb",
+				"typeProperties": {
+					"connectionString": "[parameters('CompaniesCosmos_connectionString')]"
 				}
 			},
 			"dependsOn": []
@@ -92,19 +105,6 @@
 							"customProperties": []
 						}
 					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CompaniesCosmos')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "CosmosDb",
-				"typeProperties": {
-					"connectionString": "[parameters('CompaniesCosmos_connectionString')]"
 				}
 			},
 			"dependsOn": []
@@ -630,6 +630,26 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/CompaniesCosmos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "CompaniesCosmos",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "CosmosDbSqlApiCollection",
+				"schema": {},
+				"typeProperties": {
+					"collectionName": "info-financial"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/CompaniesCosmos')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureDatabricks')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -651,26 +671,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureVault')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CompaniesCosmos')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "CompaniesCosmos",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "CosmosDbSqlApiCollection",
-				"schema": {},
-				"typeProperties": {
-					"collectionName": "info-financial"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/CompaniesCosmos')]"
 			]
 		},
 		{
@@ -1074,7 +1074,7 @@
 						"typeProperties": {
 							"source": {
 								"type": "AzureDatabricksDeltaLakeSource",
-								"query": "SELECT * FROM \ntesting.cosmos_test.financials",
+								"query": "SELECT *\nFROM testing.cosmos_test.financials\nWHERE year > (SELECT MAX(year) - 5 FROM testing.cosmos_test.financials)",
 								"exportSettings": {
 									"type": "AzureDatabricksDeltaLakeExportCommand"
 								}
