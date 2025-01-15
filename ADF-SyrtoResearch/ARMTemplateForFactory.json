@@ -85,7 +85,14 @@
 					{
 						"name": "Clear Financials Staging Blob",
 						"type": "Delete",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "Create Hierarchy and Upload",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "0.12:00:00",
 							"retry": 0,
@@ -112,14 +119,7 @@
 					{
 						"name": "Copy Financials to staging blob",
 						"type": "Copy",
-						"dependsOn": [
-							{
-								"activity": "Clear Financials Staging Blob",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
+						"dependsOn": [],
 						"policy": {
 							"timeout": "0.12:00:00",
 							"retry": 0,
@@ -166,7 +166,14 @@
 					{
 						"name": "Clear Company Info Staging Blob",
 						"type": "Delete",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "Create Hierarchy and Upload",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "0.12:00:00",
 							"retry": 0,
@@ -193,14 +200,7 @@
 					{
 						"name": "Copy Company Info to staging blob",
 						"type": "Copy",
-						"dependsOn": [
-							{
-								"activity": "Clear Company Info Staging Blob",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
+						"dependsOn": [],
 						"policy": {
 							"timeout": "0.12:00:00",
 							"retry": 0,
