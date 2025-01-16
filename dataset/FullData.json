@@ -1,0 +1,20 @@
+{
+	"name": "FullData",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ManualStagingBlob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "full",
+				"fileSystem": "databricks"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
