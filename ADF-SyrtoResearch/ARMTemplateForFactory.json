@@ -1468,7 +1468,7 @@
 						"     upsertable:false,",
 						"     recreate:true,",
 						"     format: 'document',",
-						"     partitionKey: ['id'],",
+						"     partitionKey: ['/id'],",
 						"     throughput: 500,",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true) ~> Upload"
