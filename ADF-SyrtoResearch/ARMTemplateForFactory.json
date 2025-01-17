@@ -166,7 +166,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "CompaniesDataIN",
+								"referenceName": "BranchesIN",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -186,7 +186,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataset": {
-								"referenceName": "CompaniesDataIN",
+								"referenceName": "BranchesIN",
 								"type": "DatasetReference",
 								"parameters": {}
 							},
@@ -246,7 +246,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "CompaniesDataIN",
+								"referenceName": "ManagersIN",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -266,7 +266,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataset": {
-								"referenceName": "CompaniesDataIN",
+								"referenceName": "ManagersIN",
 								"type": "DatasetReference",
 								"parameters": {}
 							},
@@ -341,6 +341,8 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DB_Delta_Lake')]",
 				"[concat(variables('factoryId'), '/datasets/CompaniesDataIN')]",
+				"[concat(variables('factoryId'), '/datasets/BranchesIN')]",
+				"[concat(variables('factoryId'), '/datasets/ManagersIN')]",
 				"[concat(variables('factoryId'), '/dataflows/Upload')]"
 			]
 		},
