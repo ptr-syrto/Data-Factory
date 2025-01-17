@@ -5,17 +5,9 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"dataset": {
-						"referenceName": "Company_Financial_Staging",
-						"type": "DatasetReference"
-					},
 					"name": "BalanceSheets"
 				},
 				{
-					"dataset": {
-						"referenceName": "Company_Info_Staging",
-						"type": "DatasetReference"
-					},
 					"name": "Anagraphics"
 				}
 			],
@@ -153,9 +145,7 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     inferDriftedColumnTypes: true,",
-				"     ignoreNoFilesFound: false,",
-				"     format: 'parquet') ~> BalanceSheets",
+				"     inferDriftedColumnTypes: true) ~> BalanceSheets",
 				"source(output(",
 				"          id as integer,",
 				"          name as string,",
@@ -169,9 +159,7 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     inferDriftedColumnTypes: true,",
-				"     ignoreNoFilesFound: false,",
-				"     format: 'parquet') ~> Anagraphics",
+				"     inferDriftedColumnTypes: true) ~> Anagraphics",
 				"CreateBSStructs aggregate(groupBy(id),",
 				"     financials = collect(Financials)) ~> Groupbyid",
 				"BalanceSheets derive(Financials = @(uuid={uuid},",
