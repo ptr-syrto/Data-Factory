@@ -126,7 +126,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "CompaniesDataIN",
+						"referenceName": "BranchesIN",
 						"type": "DatasetReference"
 					}
 				]
@@ -203,7 +203,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "CompaniesDataIN",
+						"referenceName": "ManagersIN",
 						"type": "DatasetReference"
 					}
 				]
