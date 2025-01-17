@@ -2,7 +2,7 @@
 	"name": "CompaniesCosmos",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "CompaniesCosmos",
+			"referenceName": "CosmosDb",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
