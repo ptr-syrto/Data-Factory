@@ -145,7 +145,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "CompaniesDataIN",
+						"referenceName": "BranchesIN",
 						"type": "DatasetReference"
 					},
 					"enableLogging": false,
@@ -222,7 +222,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "CompaniesDataIN",
+						"referenceName": "ManagersIN",
 						"type": "DatasetReference"
 					},
 					"enableLogging": false,
