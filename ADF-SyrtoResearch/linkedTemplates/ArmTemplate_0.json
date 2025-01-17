@@ -122,7 +122,7 @@
 				"type": "CosmosDbSqlApiCollection",
 				"schema": {},
 				"typeProperties": {
-					"collectionName": "pietro-test"
+					"collectionName": "companies"
 				}
 			},
 			"dependsOn": [
@@ -130,7 +130,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Company_Financial_Staging')]",
+			"name": "[concat(parameters('factoryName'), '/CompaniesDataIN')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -143,527 +143,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "financials",
-						"fileSystem": "databricks"
-					},
-					"compressionCodec": "snappy"
-				},
-				"schema": [
-					{
-						"name": "old_id",
-						"type": "UTF8"
-					},
-					{
-						"name": "uuid",
-						"type": "UTF8"
-					},
-					{
-						"name": "year",
-						"type": "UTF8"
-					},
-					{
-						"name": "market_type2",
-						"type": "UTF8"
-					},
-					{
-						"name": "market_type1",
-						"type": "UTF8"
-					},
-					{
-						"name": "has_gaps",
-						"type": "UTF8"
-					},
-					{
-						"name": "employees",
-						"type": "UTF8"
-					},
-					{
-						"name": "acc_format",
-						"type": "UTF8"
-					},
-					{
-						"name": "added_value",
-						"type": "UTF8"
-					},
-					{
-						"name": "deferred_liq",
-						"type": "UTF8"
-					},
-					{
-						"name": "cur_passive",
-						"type": "UTF8"
-					},
-					{
-						"name": "cons_passive",
-						"type": "UTF8"
-					},
-					{
-						"name": "tot_sources",
-						"type": "UTF8"
-					},
-					{
-						"name": "op_EBIT",
-						"type": "UTF8"
-					},
-					{
-						"name": "ROE",
-						"type": "UTF8"
-					},
-					{
-						"name": "ROA",
-						"type": "UTF8"
-					},
-					{
-						"name": "sales_assets",
-						"type": "UTF8"
-					},
-					{
-						"name": "prod_per_empl",
-						"type": "UTF8"
-					},
-					{
-						"name": "self_coverage",
-						"type": "UTF8"
-					},
-					{
-						"name": "ICap",
-						"type": "UTF8"
-					},
-					{
-						"name": "financial_sust",
-						"type": "UTF8"
-					},
-					{
-						"name": "cap_adequacy",
-						"type": "UTF8"
-					},
-					{
-						"name": "CBC",
-						"type": "UTF8"
-					},
-					{
-						"name": "Personnel_Cost_to_Revenue",
-						"type": "UTF8"
-					},
-					{
-						"name": "Indeb_Ratio",
-						"type": "UTF8"
-					},
-					{
-						"name": "DSO",
-						"type": "UTF8"
-					},
-					{
-						"name": "DPO",
-						"type": "UTF8"
-					},
-					{
-						"name": "DSI",
-						"type": "UTF8"
-					},
-					{
-						"name": "Non_Curr_Liabilities_Fixed_Asset_Ratio",
-						"type": "UTF8"
-					},
-					{
-						"name": "Curr_Asset_Total_Asset_Ratio",
-						"type": "UTF8"
-					},
-					{
-						"name": "Current_Debt_Total_Debt_Ratio",
-						"type": "UTF8"
-					},
-					{
-						"name": "Cash_Curr_Asset_Ratio",
-						"type": "UTF8"
-					},
-					{
-						"name": "Market_Value",
-						"type": "UTF8"
-					},
-					{
-						"name": "Financial_Debt_Net_Worth",
-						"type": "UTF8"
-					},
-					{
-						"name": "Liquid_Cov_Fin_Debt",
-						"type": "UTF8"
-					},
-					{
-						"name": "Liquidity",
-						"type": "UTF8"
-					},
-					{
-						"name": "Revenue",
-						"type": "UTF8"
-					},
-					{
-						"name": "Costs_Raw_Materials_Services",
-						"type": "UTF8"
-					},
-					{
-						"name": "asset-liability_mismatch",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-01",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-02",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-03",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-04",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-05",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-06",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-07",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-08",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-09",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-11",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-12",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-13",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-14",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-15",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-16",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-18",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-19",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-20",
-						"type": "UTF8"
-					},
-					{
-						"name": "EBITDA",
-						"type": "UTF8"
-					},
-					{
-						"name": "cur_active",
-						"type": "UTF8"
-					},
-					{
-						"name": "CCnLp",
-						"type": "UTF8"
-					},
-					{
-						"name": "UFCF",
-						"type": "UTF8"
-					},
-					{
-						"name": "CapEx",
-						"type": "UTF8"
-					},
-					{
-						"name": "quick_ratio",
-						"type": "UTF8"
-					},
-					{
-						"name": "global_coverage",
-						"type": "UTF8"
-					},
-					{
-						"name": "RCT",
-						"type": "UTF8"
-					},
-					{
-						"name": "Cash_Ratio",
-						"type": "UTF8"
-					},
-					{
-						"name": "CCC",
-						"type": "UTF8"
-					},
-					{
-						"name": "Added_Value_Employee",
-						"type": "UTF8"
-					},
-					{
-						"name": "Industry_Contribution_GDP",
-						"type": "UTF8"
-					},
-					{
-						"name": "financial_mismatch",
-						"type": "UTF8"
-					},
-					{
-						"name": "op_EBIT_Margin",
-						"type": "UTF8"
-					},
-					{
-						"name": "Revenue_self-financing",
-						"type": "UTF8"
-					},
-					{
-						"name": "CAGR_3-years",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-17",
-						"type": "UTF8"
-					},
-					{
-						"name": "EBIT",
-						"type": "UTF8"
-					},
-					{
-						"name": "tot_investiments",
-						"type": "UTF8"
-					},
-					{
-						"name": "CCn",
-						"type": "UTF8"
-					},
-					{
-						"name": "financial_ebitda",
-						"type": "UTF8"
-					},
-					{
-						"name": "secondary_liq",
-						"type": "UTF8"
-					},
-					{
-						"name": "Ebitda_Margin",
-						"type": "UTF8"
-					},
-					{
-						"name": "Ebitda_Fin-Interest",
-						"type": "UTF8"
-					},
-					{
-						"name": "Debt_ebitda_Ratio",
-						"type": "UTF8"
-					},
-					{
-						"name": "Capex_Sales_Ratio",
-						"type": "UTF8"
-					},
-					{
-						"name": "liquidity-debt_service_cover_ratio",
-						"type": "UTF8"
-					},
-					{
-						"name": "interest_coverage_ratio",
-						"type": "UTF8"
-					},
-					{
-						"name": "EBT",
-						"type": "UTF8"
-					},
-					{
-						"name": "inv_CAP",
-						"type": "UTF8"
-					},
-					{
-						"name": "workCap_sales",
-						"type": "UTF8"
-					},
-					{
-						"name": "op_leverage",
-						"type": "UTF8"
-					},
-					{
-						"name": "ROTA",
-						"type": "UTF8"
-					},
-					{
-						"name": "Ebitda_CAGR_3-years",
-						"type": "UTF8"
-					},
-					{
-						"name": "Ebit_Margin",
-						"type": "UTF8"
-					},
-					{
-						"name": "FE-10",
-						"type": "UTF8"
-					},
-					{
-						"name": "ROI",
-						"type": "UTF8"
-					},
-					{
-						"name": "ROCE",
-						"type": "UTF8"
-					},
-					{
-						"name": "UFCF_cap",
-						"type": "UTF8"
-					},
-					{
-						"name": "opCash_capital",
-						"type": "UTF8"
-					},
-					{
-						"name": "liq_ret_activity",
-						"type": "UTF8"
-					},
-					{
-						"name": "net_return_on_invested_capital",
-						"type": "UTF8"
-					},
-					{
-						"name": "Zp-scoreltman",
-						"type": "UTF8"
-					},
-					{
-						"name": "Zpp-scoreltman",
-						"type": "UTF8"
-					},
-					{
-						"name": "Value_Creation_Index",
-						"type": "UTF8"
-					},
-					{
-						"name": "revenue_growth",
-						"type": "UTF8"
-					},
-					{
-						"name": "OverIndebtedness_Ratio",
-						"type": "UTF8"
-					},
-					{
-						"name": "size",
-						"type": "UTF8"
-					},
-					{
-						"name": "macro_area",
-						"type": "UTF8"
-					},
-					{
-						"name": "market_area",
-						"type": "UTF8"
-					},
-					{
-						"name": "id",
-						"type": "UTF8"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ManualStagingBlob')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Company_Info_Staging')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ManualStagingBlob",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Parquet",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "company-info",
-						"fileSystem": "databricks"
-					},
-					"compressionCodec": "snappy"
-				},
-				"schema": [
-					{
-						"name": "id",
-						"type": "UTF8"
-					},
-					{
-						"name": "name",
-						"type": "UTF8"
-					},
-					{
-						"name": "TIN",
-						"type": "UTF8"
-					},
-					{
-						"name": "EVN",
-						"type": "UTF8"
-					},
-					{
-						"name": "location",
-						"type": "UTF8"
-					},
-					{
-						"name": "legal",
-						"type": "UTF8"
-					},
-					{
-						"name": "nace",
-						"type": "UTF8"
-					},
-					{
-						"name": "last_available_year",
-						"type": "UTF8"
-					},
-					{
-						"name": "size",
-						"type": "UTF8"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ManualStagingBlob')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/FullData')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ManualStagingBlob",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Parquet",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "full",
+						"folderPath": "companies",
 						"fileSystem": "databricks"
 					},
 					"compressionCodec": "snappy"
@@ -699,6 +179,76 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/BranchesIN')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ManualStagingBlob",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "branches",
+						"fileSystem": "databricks"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ManualStagingBlob')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ManagersIN')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ManualStagingBlob",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "managers",
+						"fileSystem": "databricks"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ManualStagingBlob')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ManagersCosmos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "CompaniesCosmos",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "CosmosDbSqlApiCollection",
+				"schema": {},
+				"typeProperties": {
+					"collectionName": "managers"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/CompaniesCosmos')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DB_Delta_Lake')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -717,7 +267,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Cosmos')]",
+			"name": "[concat(parameters('factoryName'), '/Upload')]",
 			"type": "Microsoft.DataFactory/factories/dataflows",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -726,17 +276,24 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "Company_Financial_Staging",
+								"referenceName": "CompaniesDataIN",
 								"type": "DatasetReference"
 							},
-							"name": "BalanceSheets"
+							"name": "Companies"
 						},
 						{
 							"dataset": {
-								"referenceName": "Company_Info_Staging",
+								"referenceName": "BranchesIN",
 								"type": "DatasetReference"
 							},
-							"name": "Anagraphics"
+							"name": "Branches"
+						},
+						{
+							"dataset": {
+								"referenceName": "ManagersIN",
+								"type": "DatasetReference"
+							},
+							"name": "Managers"
 						}
 					],
 					"sinks": [
@@ -745,285 +302,21 @@
 								"referenceName": "CompaniesCosmos",
 								"type": "DatasetReference"
 							},
-							"name": "ToCosmos"
-						}
-					],
-					"transformations": [
-						{
-							"name": "Groupbyid"
+							"name": "CompaniesCosmos"
 						},
-						{
-							"name": "CreateBSStructs",
-							"description": "Creating Struct columns\n"
-						},
-						{
-							"name": "CombineInfo"
-						}
-					],
-					"scriptLines": [
-						"source(output(",
-						"          old_id as string,",
-						"          uuid as string,",
-						"          year as integer,",
-						"          market_type2 as (section as string, market_area as string, size as string),",
-						"          market_type1 as (NACE as long, market_area as string, size as string),",
-						"          has_gaps as boolean,",
-						"          employees as long,",
-						"          acc_format as string,",
-						"          added_value as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          deferred_liq as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          cur_passive as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          cons_passive as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          tot_sources as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          op_EBIT as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          ROE as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          ROA as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          sales_assets as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          prod_per_empl as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          self_coverage as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          ICap as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          financial_sust as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          cap_adequacy as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          CBC as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Personnel_Cost_to_Revenue as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Indeb_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          DSO as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          DPO as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          DSI as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Non_Curr_Liabilities_Fixed_Asset_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Curr_Asset_Total_Asset_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Current_Debt_Total_Debt_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Cash_Curr_Asset_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Market_Value as (value as long, previous as long, year_change as double, market_diff as double, market as long, score as byte),",
-						"          Financial_Debt_Net_Worth as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Liquid_Cov_Fin_Debt as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Liquidity as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Revenue as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Costs_Raw_Materials_Services as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {asset-liability_mismatch} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-01} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-02} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-03} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-04} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-05} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-06} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-07} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-08} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-09} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-11} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-12} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-13} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-14} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-15} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-16} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-18} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-19} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-20} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          EBITDA as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          cur_active as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          CCnLp as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          UFCF as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          CapEx as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          quick_ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          global_coverage as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          RCT as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Cash_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          CCC as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Added_Value_Employee as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Industry_Contribution_GDP as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          financial_mismatch as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          op_EBIT_Margin as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {Revenue_self-financing} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {CAGR_3-years} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-17} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          EBIT as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          tot_investiments as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          CCn as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          financial_ebitda as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          secondary_liq as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Ebitda_Margin as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {Ebitda_Fin-Interest} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Debt_ebitda_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Capex_Sales_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {liquidity-debt_service_cover_ratio} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          interest_coverage_ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          EBT as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          inv_CAP as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          workCap_sales as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          op_leverage as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          ROTA as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {Ebitda_CAGR_3-years} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Ebit_Margin as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {FE-10} as (value as long, previous as long, year_change as double, market_diff as double, market as double, score as byte),",
-						"          ROI as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          ROCE as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          UFCF_cap as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          opCash_capital as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          liq_ret_activity as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          net_return_on_invested_capital as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {Zp-scoreltman} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          {Zpp-scoreltman} as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          Value_Creation_Index as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          revenue_growth as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          OverIndebtedness_Ratio as (value as double, previous as double, year_change as double, market_diff as double, market as double, score as byte),",
-						"          size as string,",
-						"          macro_area as string,",
-						"          market_area as string,",
-						"          id as integer",
-						"     ),",
-						"     allowSchemaDrift: true,",
-						"     validateSchema: false,",
-						"     inferDriftedColumnTypes: true,",
-						"     ignoreNoFilesFound: false,",
-						"     format: 'parquet') ~> BalanceSheets",
-						"source(output(",
-						"          id as integer,",
-						"          name as string,",
-						"          TIN as string,",
-						"          EVN as string,",
-						"          location as (address as (addr_line as string, zip as string, city as string, country as string, country_code as string), coords as (lat as double, lon as double), nuts as (nuts_1 as string, nuts_2 as string, nuts_3 as string)),",
-						"          legal as (status as string, founding_date as string),",
-						"          nace as (section as string, nace_lv1 as string, nace_lv2 as string, nace_code as string),",
-						"          last_available_year as integer,",
-						"          size as string",
-						"     ),",
-						"     allowSchemaDrift: true,",
-						"     validateSchema: false,",
-						"     inferDriftedColumnTypes: true,",
-						"     ignoreNoFilesFound: false,",
-						"     format: 'parquet') ~> Anagraphics",
-						"CreateBSStructs aggregate(groupBy(id),",
-						"     financials = collect(Financials)) ~> Groupbyid",
-						"BalanceSheets derive(Financials = @(uuid={uuid},",
-						"          year={year},",
-						"          employees={employees},",
-						"          added_value={added_value},",
-						"          deferred_liq={deferred_liq},",
-						"          cur_passive={cur_passive},",
-						"          cons_passive={cons_passive},",
-						"          tot_sources={tot_sources},",
-						"          op_EBIT={op_EBIT},",
-						"          ROE={ROE},",
-						"          ROA={ROA},",
-						"          sales_assets={sales_assets},",
-						"          prod_per_empl={prod_per_empl},",
-						"          self_coverage={self_coverage},",
-						"          ICap={ICap},",
-						"          financial_sust={financial_sust},",
-						"          cap_adequacy={cap_adequacy},",
-						"          CBC={CBC},",
-						"          Personnel_Cost_to_Revenue={Personnel_Cost_to_Revenue},",
-						"          Indeb_Ratio={Indeb_Ratio},",
-						"          DSO={DSO},",
-						"          DPO={DPO},",
-						"          DSI={DSI},",
-						"          Non_Curr_Liabilities_Fixed_Asset_Ratio={Non_Curr_Liabilities_Fixed_Asset_Ratio},",
-						"          Curr_Asset_Total_Asset_Ratio={Curr_Asset_Total_Asset_Ratio},",
-						"          Current_Debt_Total_Debt_Ratio={Current_Debt_Total_Debt_Ratio},",
-						"          Cash_Curr_Asset_Ratio={Cash_Curr_Asset_Ratio},",
-						"          Market_Value={Market_Value},",
-						"          Financial_Debt_Net_Worth={Financial_Debt_Net_Worth},",
-						"          Liquid_Cov_Fin_Debt={Liquid_Cov_Fin_Debt},",
-						"          Liquidity={Liquidity},",
-						"          Revenue={Revenue},",
-						"          Costs_Raw_Materials_Services={Costs_Raw_Materials_Services},",
-						"          {asset-liability_mismatch}={asset-liability_mismatch},",
-						"          EBITDA={EBITDA},",
-						"          cur_active={cur_active},",
-						"          CCnLp={CCnLp},",
-						"          UFCF={UFCF},",
-						"          CapEx={CapEx},",
-						"          quick_ratio={quick_ratio},",
-						"          global_coverage={global_coverage},",
-						"          RCT={RCT},",
-						"          Cash_Ratio={Cash_Ratio},",
-						"          CCC={CCC},",
-						"          Added_Value_Employee={Added_Value_Employee},",
-						"          Industry_Contribution_GDP={Industry_Contribution_GDP},",
-						"          financial_mismatch={financial_mismatch},",
-						"          op_EBIT_Margin={op_EBIT_Margin},",
-						"          {Revenue_self-financing}={Revenue_self-financing},",
-						"          {CAGR_3-years}={CAGR_3-years},",
-						"          EBIT={EBIT},",
-						"          tot_investiments={tot_investiments},",
-						"          CCn={CCn},",
-						"          financial_ebitda={financial_ebitda},",
-						"          secondary_liq={secondary_liq},",
-						"          Ebitda_Margin={Ebitda_Margin},",
-						"          {Ebitda_Fin-Interest}={Ebitda_Fin-Interest},",
-						"          Debt_ebitda_Ratio={Debt_ebitda_Ratio},",
-						"          Capex_Sales_Ratio={Capex_Sales_Ratio},",
-						"          {liquidity-debt_service_cover_ratio}={liquidity-debt_service_cover_ratio},",
-						"          interest_coverage_ratio={interest_coverage_ratio},",
-						"          EBT={EBT},",
-						"          inv_CAP={inv_CAP},",
-						"          workCap_sales={workCap_sales},",
-						"          op_leverage={op_leverage},",
-						"          ROTA={ROTA},",
-						"          {Ebitda_CAGR_3-years}={Ebitda_CAGR_3-years},",
-						"          Ebit_Margin={Ebit_Margin},",
-						"          ROI={ROI},",
-						"          ROCE={ROCE},",
-						"          UFCF_cap={UFCF_cap},",
-						"          opCash_capital={opCash_capital},",
-						"          liq_ret_activity={liq_ret_activity},",
-						"          net_return_on_invested_capital={net_return_on_invested_capital},",
-						"          {Zp-scoreltman}={Zp-scoreltman},",
-						"          {Zpp-scoreltman}={Zpp-scoreltman},",
-						"          Value_Creation_Index={Value_Creation_Index},",
-						"          revenue_growth={revenue_growth},",
-						"          OverIndebtedness_Ratio={OverIndebtedness_Ratio},",
-						"          size={size})) ~> CreateBSStructs",
-						"Groupbyid, Anagraphics join(Groupbyid@id == Anagraphics@id,",
-						"     joinType:'left',",
-						"     matchType:'exact',",
-						"     ignoreSpaces: false,",
-						"     broadcast: 'auto')~> CombineInfo",
-						"CombineInfo sink(allowSchemaDrift: true,",
-						"     validateSchema: false,",
-						"     deletable:false,",
-						"     insertable:true,",
-						"     updateable:true,",
-						"     upsertable:true,",
-						"     format: 'document',",
-						"     partitionKey: ['/id'],",
-						"     throughput: 4000,",
-						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true,",
-						"     preCommands: [],",
-						"     postCommands: []) ~> ToCosmos"
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Company_Financial_Staging')]",
-				"[concat(variables('factoryId'), '/datasets/Company_Info_Staging')]",
-				"[concat(variables('factoryId'), '/datasets/CompaniesCosmos')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Test1')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "MappingDataFlow",
-				"typeProperties": {
-					"sources": [
-						{
-							"dataset": {
-								"referenceName": "FullData",
-								"type": "DatasetReference"
-							},
-							"name": "StagingData"
-						}
-					],
-					"sinks": [
 						{
 							"dataset": {
 								"referenceName": "CompaniesCosmos",
 								"type": "DatasetReference"
 							},
-							"name": "Upload"
+							"name": "BranchesCosmos"
+						},
+						{
+							"dataset": {
+								"referenceName": "ManagersCosmos",
+								"type": "DatasetReference"
+							},
+							"name": "ManagertsCosmos"
 						}
 					],
 					"transformations": [],
@@ -1031,317 +324,52 @@
 						"source(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     ignoreNoFilesFound: false,",
-						"     format: 'parquet') ~> StagingData",
-						"StagingData sink(allowSchemaDrift: true,",
+						"     format: 'parquet') ~> Companies",
+						"source(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false,",
+						"     format: 'parquet') ~> Branches",
+						"source(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false,",
+						"     format: 'parquet') ~> Managers",
+						"Companies sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     deletable:false,",
+						"     insertable:true,",
+						"     updateable:false,",
+						"     upsertable:true,",
+						"     format: 'document',",
+						"     throughput: 500,",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> CompaniesCosmos",
+						"Branches sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     deletable:false,",
 						"     insertable:true,",
 						"     updateable:false,",
 						"     upsertable:false,",
-						"     recreate:true,",
 						"     format: 'document',",
-						"     partitionKey: ['/id'],",
-						"     throughput: 500,",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> Upload"
+						"     skipDuplicateMapOutputs: true) ~> BranchesCosmos",
+						"Managers sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     deletable:false,",
+						"     insertable:true,",
+						"     updateable:false,",
+						"     upsertable:false,",
+						"     format: 'document',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> ManagertsCosmos"
 					]
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/FullData')]",
-				"[concat(variables('factoryId'), '/datasets/CompaniesCosmos')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CosmosTest')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Create Hierarchy and Upload",
-						"type": "ExecuteDataFlow",
-						"dependsOn": [
-							{
-								"activity": "Copy Financials to staging blob",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "Copy Company Info to staging blob",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataflow": {
-								"referenceName": "Cosmos",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"BalanceSheets": {},
-									"Anagraphics": {},
-									"ToCosmos": {}
-								}
-							},
-							"staging": {},
-							"compute": {
-								"coreCount": 8,
-								"computeType": "General"
-							},
-							"traceLevel": "Fine"
-						}
-					},
-					{
-						"name": "Copy Financials to staging blob",
-						"type": "Copy",
-						"dependsOn": [
-							{
-								"activity": "Clear Financials Staging 2",
-								"dependencyConditions": [
-									"Completed"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "AzureDatabricksDeltaLakeSource",
-								"query": "SELECT *\nFROM testing.cosmos_test.financials\nWHERE year > (SELECT MAX(year) - 5 FROM testing.cosmos_test.financials)",
-								"exportSettings": {
-									"type": "AzureDatabricksDeltaLakeExportCommand"
-								}
-							},
-							"sink": {
-								"type": "ParquetSink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings",
-									"copyBehavior": "PreserveHierarchy"
-								},
-								"formatSettings": {
-									"type": "ParquetWriteSettings"
-								}
-							},
-							"enableStaging": false
-						},
-						"inputs": [
-							{
-								"referenceName": "DB_Delta_Lake",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "Company_Financial_Staging",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					},
-					{
-						"name": "Copy Company Info to staging blob",
-						"type": "Copy",
-						"dependsOn": [
-							{
-								"activity": "Clear Company Info Staging 2",
-								"dependencyConditions": [
-									"Completed"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "AzureDatabricksDeltaLakeSource",
-								"query": "SELECT * FROM testing.cosmos_test.company_info",
-								"exportSettings": {
-									"type": "AzureDatabricksDeltaLakeExportCommand"
-								}
-							},
-							"sink": {
-								"type": "ParquetSink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings",
-									"copyBehavior": "PreserveHierarchy"
-								},
-								"formatSettings": {
-									"type": "ParquetWriteSettings"
-								}
-							},
-							"enableStaging": false
-						},
-						"inputs": [
-							{
-								"referenceName": "DB_Delta_Lake",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "Company_Info_Staging",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					},
-					{
-						"name": "Clear Financials Staging 2",
-						"type": "Delete",
-						"dependsOn": [
-							{
-								"activity": "Clear Financials Staging 1",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataset": {
-								"referenceName": "Company_Financial_Staging",
-								"type": "DatasetReference",
-								"parameters": {}
-							},
-							"enableLogging": false,
-							"storeSettings": {
-								"type": "AzureBlobFSReadSettings",
-								"recursive": true,
-								"wildcardFileName": "*",
-								"enablePartitionDiscovery": false
-							}
-						}
-					},
-					{
-						"name": "Clear Company Info Staging 2",
-						"type": "Delete",
-						"dependsOn": [
-							{
-								"activity": "Clear Company Info Staging 1",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataset": {
-								"referenceName": "Company_Info_Staging",
-								"type": "DatasetReference",
-								"parameters": {}
-							},
-							"enableLogging": false,
-							"storeSettings": {
-								"type": "AzureBlobFSReadSettings",
-								"recursive": true,
-								"wildcardFileName": "*",
-								"enablePartitionDiscovery": false
-							}
-						}
-					},
-					{
-						"name": "Clear Financials Staging 1",
-						"type": "Delete",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataset": {
-								"referenceName": "Company_Financial_Staging",
-								"type": "DatasetReference",
-								"parameters": {}
-							},
-							"enableLogging": false,
-							"storeSettings": {
-								"type": "AzureBlobFSReadSettings",
-								"recursive": true,
-								"enablePartitionDiscovery": false
-							}
-						}
-					},
-					{
-						"name": "Clear Company Info Staging 1",
-						"type": "Delete",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataset": {
-								"referenceName": "Company_Info_Staging",
-								"type": "DatasetReference",
-								"parameters": {}
-							},
-							"enableLogging": false,
-							"storeSettings": {
-								"type": "AzureBlobFSReadSettings",
-								"recursive": true,
-								"enablePartitionDiscovery": false
-							}
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": [],
-				"lastPublishTime": "2024-11-17T11:44:30Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/Cosmos')]",
-				"[concat(variables('factoryId'), '/datasets/DB_Delta_Lake')]",
-				"[concat(variables('factoryId'), '/datasets/Company_Financial_Staging')]",
-				"[concat(variables('factoryId'), '/datasets/Company_Info_Staging')]"
+				"[concat(variables('factoryId'), '/datasets/CompaniesDataIN')]",
+				"[concat(variables('factoryId'), '/datasets/BranchesIN')]",
+				"[concat(variables('factoryId'), '/datasets/ManagersIN')]",
+				"[concat(variables('factoryId'), '/datasets/CompaniesCosmos')]",
+				"[concat(variables('factoryId'), '/datasets/ManagersCosmos')]"
 			]
 		},
 		{
@@ -1351,48 +379,11 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Upload",
-						"type": "ExecuteDataFlow",
-						"dependsOn": [
-							{
-								"activity": "Copy Data to Staging",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataflow": {
-								"referenceName": "Test1",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"StagingData": {},
-									"Upload": {}
-								}
-							},
-							"staging": {},
-							"compute": {
-								"coreCount": 8,
-								"computeType": "General"
-							},
-							"traceLevel": "Fine"
-						}
-					},
-					{
-						"name": "Copy Data to Staging",
+						"name": "Copy Companies",
 						"type": "Copy",
 						"dependsOn": [
 							{
-								"activity": "Clear Data",
+								"activity": "Clear Companies Data",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -1409,7 +400,7 @@
 						"typeProperties": {
 							"source": {
 								"type": "AzureDatabricksDeltaLakeSource",
-								"query": "SELECT *\nFROM testing.cosmos_test.to_upload",
+								"query": "SELECT *\nFROM testing.cosmos_upload.companies",
 								"exportSettings": {
 									"type": "AzureDatabricksDeltaLakeExportCommand"
 								}
@@ -1435,14 +426,14 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "FullData",
+								"referenceName": "CompaniesDataIN",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						]
 					},
 					{
-						"name": "Clear Data",
+						"name": "Clear Companies Data",
 						"type": "Delete",
 						"dependsOn": [],
 						"policy": {
@@ -1455,7 +446,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataset": {
-								"referenceName": "FullData",
+								"referenceName": "CompaniesDataIN",
 								"type": "DatasetReference",
 								"parameters": {}
 							},
@@ -1466,6 +457,219 @@
 								"enablePartitionDiscovery": false
 							}
 						}
+					},
+					{
+						"name": "Copy Branches",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Clear Branches",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureDatabricksDeltaLakeSource",
+								"query": "SELECT *\nFROM testing.cosmos_upload.branches",
+								"exportSettings": {
+									"type": "AzureDatabricksDeltaLakeExportCommand"
+								}
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings",
+									"copyBehavior": "PreserveHierarchy"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "DB_Delta_Lake",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "CompaniesDataIN",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Clear Branches",
+						"type": "Delete",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "CompaniesDataIN",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"enableLogging": false,
+							"storeSettings": {
+								"type": "AzureBlobFSReadSettings",
+								"recursive": true,
+								"enablePartitionDiscovery": false
+							}
+						}
+					},
+					{
+						"name": "Copy Managers",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Clear Managers",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureDatabricksDeltaLakeSource",
+								"query": "SELECT *\nFROM testing.cosmos_upload.managers",
+								"exportSettings": {
+									"type": "AzureDatabricksDeltaLakeExportCommand"
+								}
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings",
+									"copyBehavior": "PreserveHierarchy"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "DB_Delta_Lake",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "CompaniesDataIN",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Clear Managers",
+						"type": "Delete",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "CompaniesDataIN",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"enableLogging": false,
+							"storeSettings": {
+								"type": "AzureBlobFSReadSettings",
+								"recursive": true,
+								"enablePartitionDiscovery": false
+							}
+						}
+					},
+					{
+						"name": "Upload",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [
+							{
+								"activity": "Copy Branches",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "Copy Companies",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "Copy Managers",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "Upload",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"Companies": {},
+									"Branches": {},
+									"Managers": {},
+									"CompaniesCosmos": {},
+									"BranchesCosmos": {},
+									"ManagertsCosmos": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
 					}
 				],
 				"policy": {
@@ -1475,9 +679,9 @@
 				"lastPublishTime": "2024-11-17T11:44:30Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/Test1')]",
 				"[concat(variables('factoryId'), '/datasets/DB_Delta_Lake')]",
-				"[concat(variables('factoryId'), '/datasets/FullData')]"
+				"[concat(variables('factoryId'), '/datasets/CompaniesDataIN')]",
+				"[concat(variables('factoryId'), '/dataflows/Upload')]"
 			]
 		}
 	]
