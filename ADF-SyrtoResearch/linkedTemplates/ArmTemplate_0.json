@@ -140,7 +140,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "CompaniesCosmos",
+					"referenceName": "CosmosDb",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -151,7 +151,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/CompaniesCosmos')]"
+				"[concat(variables('factoryId'), '/linkedServices/CosmosDb')]"
 			]
 		},
 		{
@@ -185,7 +185,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "CompaniesCosmos",
+					"referenceName": "CosmosDb",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -196,7 +196,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/CompaniesCosmos')]"
+				"[concat(variables('factoryId'), '/linkedServices/CosmosDb')]"
 			]
 		},
 		{
@@ -348,7 +348,7 @@
 						"     deletable:false,",
 						"     insertable:true,",
 						"     updateable:false,",
-						"     upsertable:false,",
+						"     upsertable:true,",
 						"     format: 'document',",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true) ~> BranchesCosmos",
@@ -357,7 +357,7 @@
 						"     deletable:false,",
 						"     insertable:true,",
 						"     updateable:false,",
-						"     upsertable:false,",
+						"     upsertable:true,",
 						"     format: 'document',",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true) ~> ManagertsCosmos"
