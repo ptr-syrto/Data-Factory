@@ -1,5 +1,5 @@
 {
-	"name": "BranchesCosmos",
+	"name": "ManagersCosmos",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "CosmosDb",
@@ -9,7 +9,7 @@
 		"type": "CosmosDbSqlApiCollection",
 		"schema": {},
 		"typeProperties": {
-			"collectionName": "branches"
+			"collectionName": "managers"
 		}
 	}
 }
