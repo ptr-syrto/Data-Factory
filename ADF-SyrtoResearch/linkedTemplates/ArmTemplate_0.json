@@ -110,6 +110,31 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/BranchesIN')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ManualStagingBlob",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "branches",
+						"fileSystem": "databricks"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ManualStagingBlob')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/CompaniesCosmos')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -155,52 +180,23 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureDatabricks')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureDatabricksDeltaLake",
-				"typeProperties": {
-					"domain": "https://adb-621924991732662.2.azuredatabricks.net",
-					"clusterId": "1117-123610-x5x80num",
-					"accessToken": {
-						"type": "AzureKeyVaultSecret",
-						"store": {
-							"referenceName": "AzureVault",
-							"type": "LinkedServiceReference"
-						},
-						"secretName": "databricks-pietro"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureVault')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/BranchesIN')]",
+			"name": "[concat(parameters('factoryName'), '/ManagersCosmos')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "ManualStagingBlob",
+					"referenceName": "CompaniesCosmos",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
-				"type": "Parquet",
+				"type": "CosmosDbSqlApiCollection",
+				"schema": {},
 				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "branches",
-						"fileSystem": "databricks"
-					},
-					"compressionCodec": "snappy"
-				},
-				"schema": []
+					"collectionName": "managers"
+				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ManualStagingBlob')]"
+				"[concat(variables('factoryId'), '/linkedServices/CompaniesCosmos')]"
 			]
 		},
 		{
@@ -229,23 +225,27 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ManagersCosmos')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricks')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"linkedServiceName": {
-					"referenceName": "CompaniesCosmos",
-					"type": "LinkedServiceReference"
-				},
 				"annotations": [],
-				"type": "CosmosDbSqlApiCollection",
-				"schema": {},
+				"type": "AzureDatabricksDeltaLake",
 				"typeProperties": {
-					"collectionName": "managers"
+					"domain": "https://adb-621924991732662.2.azuredatabricks.net",
+					"clusterId": "1117-123610-x5x80num",
+					"accessToken": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "AzureVault",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "databricks-pietro"
+					}
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/CompaniesCosmos')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureVault')]"
 			]
 		},
 		{

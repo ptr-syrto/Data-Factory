@@ -347,6 +347,31 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/BranchesIN')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ManualStagingBlob",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "branches",
+						"fileSystem": "databricks"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ManualStagingBlob')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/CompaniesCosmos')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -364,6 +389,31 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/CompaniesCosmos')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CompaniesDataIN')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ManualStagingBlob",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "companies",
+						"fileSystem": "databricks"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ManualStagingBlob')]"
 			]
 		},
 		{
@@ -385,7 +435,27 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/CompaniesDataIN')]",
+			"name": "[concat(parameters('factoryName'), '/ManagersCosmos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "CompaniesCosmos",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "CosmosDbSqlApiCollection",
+				"schema": {},
+				"typeProperties": {
+					"collectionName": "managers"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/CompaniesCosmos')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ManagersIN')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -398,7 +468,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "companies",
+						"folderPath": "managers",
 						"fileSystem": "databricks"
 					},
 					"compressionCodec": "snappy"
@@ -614,76 +684,6 @@
 				"[concat(variables('factoryId'), '/datasets/ManagersIN')]",
 				"[concat(variables('factoryId'), '/datasets/CompaniesCosmos')]",
 				"[concat(variables('factoryId'), '/datasets/ManagersCosmos')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/BranchesIN')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ManualStagingBlob",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Parquet",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "branches",
-						"fileSystem": "databricks"
-					},
-					"compressionCodec": "snappy"
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ManualStagingBlob')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ManagersIN')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ManualStagingBlob",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Parquet",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "managers",
-						"fileSystem": "databricks"
-					},
-					"compressionCodec": "snappy"
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ManualStagingBlob')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ManagersCosmos')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "CompaniesCosmos",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "CosmosDbSqlApiCollection",
-				"schema": {},
-				"typeProperties": {
-					"collectionName": "managers"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/CompaniesCosmos')]"
 			]
 		}
 	]
