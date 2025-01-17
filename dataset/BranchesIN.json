@@ -1,5 +1,5 @@
 {
-	"name": "CompaniesDataIN",
+	"name": "BranchesIN",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ManualStagingBlob",
@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "companies",
+				"folderPath": "branches",
 				"fileSystem": "databricks"
 			},
 			"compressionCodec": "snappy"

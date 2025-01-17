@@ -1,5 +1,5 @@
 {
-	"name": "CompaniesCosmos",
+	"name": "ManagersCosmos",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "CompaniesCosmos",
@@ -9,7 +9,7 @@
 		"type": "CosmosDbSqlApiCollection",
 		"schema": {},
 		"typeProperties": {
-			"collectionName": "companies"
+			"collectionName": "managers"
 		}
 	}
 }

@@ -1,15 +1,29 @@
 {
-	"name": "Test1",
+	"name": "Upload",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "FullData",
+						"referenceName": "CompaniesDataIN",
 						"type": "DatasetReference"
 					},
-					"name": "StagingData"
+					"name": "Companies"
+				},
+				{
+					"dataset": {
+						"referenceName": "BranchesIN",
+						"type": "DatasetReference"
+					},
+					"name": "Branches"
+				},
+				{
+					"dataset": {
+						"referenceName": "ManagersIN",
+						"type": "DatasetReference"
+					},
+					"name": "Managers"
 				}
 			],
 			"sinks": [
@@ -18,7 +32,21 @@
 						"referenceName": "CompaniesCosmos",
 						"type": "DatasetReference"
 					},
-					"name": "Upload"
+					"name": "CompaniesCosmos"
+				},
+				{
+					"dataset": {
+						"referenceName": "CompaniesCosmos",
+						"type": "DatasetReference"
+					},
+					"name": "BranchesCosmos"
+				},
+				{
+					"dataset": {
+						"referenceName": "ManagersCosmos",
+						"type": "DatasetReference"
+					},
+					"name": "ManagertsCosmos"
 				}
 			],
 			"transformations": [],
@@ -26,19 +54,43 @@
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     format: 'parquet') ~> StagingData",
-				"StagingData sink(allowSchemaDrift: true,",
+				"     format: 'parquet') ~> Companies",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> Branches",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> Managers",
+				"Companies sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:true,",
+				"     format: 'document',",
+				"     throughput: 500,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> CompaniesCosmos",
+				"Branches sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
 				"     insertable:true,",
 				"     updateable:false,",
 				"     upsertable:false,",
-				"     recreate:true,",
 				"     format: 'document',",
-				"     partitionKey: ['/id'],",
-				"     throughput: 500,",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> Upload"
+				"     skipDuplicateMapOutputs: true) ~> BranchesCosmos",
+				"Managers sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'document',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> ManagertsCosmos"
 			]
 		}
 	}
