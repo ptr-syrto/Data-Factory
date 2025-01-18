@@ -72,7 +72,6 @@
 				"     recreate:true,",
 				"     format: 'document',",
 				"     partitionKey: ['/id'],",
-				"     throughput: 500,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> CompaniesCosmos",
 				"Branches sink(allowSchemaDrift: true,",
@@ -84,7 +83,6 @@
 				"     recreate:true,",
 				"     format: 'document',",
 				"     partitionKey: ['/id'],",
-				"     throughput: 500,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> BranchesCosmos",
 				"Managers sink(allowSchemaDrift: true,",
@@ -95,7 +93,6 @@
 				"     upsertable:true,",
 				"     format: 'document',",
 				"     partitionKey: ['/contactId'],",
-				"     throughput: 500,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> ManagerCosmos"
 			]
