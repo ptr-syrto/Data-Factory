@@ -199,6 +199,59 @@
 						}
 					},
 					{
+						"name": "Upload",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [
+							{
+								"activity": "Copy Branches",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "Copy Companies",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "Copy Managers",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "Upload",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"Companies": {},
+									"Branches": {},
+									"Managers": {},
+									"CompaniesCosmos": {},
+									"BranchesCosmos": {},
+									"ManagerCosmos": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					},
+					{
 						"name": "Copy Managers",
 						"type": "Copy",
 						"dependsOn": [
@@ -246,7 +299,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "ManagersIN",
+								"referenceName": "BranchesIN",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -277,59 +330,6 @@
 								"enablePartitionDiscovery": false
 							}
 						}
-					},
-					{
-						"name": "Upload",
-						"type": "ExecuteDataFlow",
-						"dependsOn": [
-							{
-								"activity": "Copy Branches",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "Copy Companies",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "Copy Managers",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataflow": {
-								"referenceName": "Upload",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"Companies": {},
-									"Branches": {},
-									"Managers": {},
-									"CompaniesCosmos": {},
-									"BranchesCosmos": {},
-									"ManagertsCosmos": {}
-								}
-							},
-							"staging": {},
-							"compute": {
-								"coreCount": 8,
-								"computeType": "General"
-							},
-							"traceLevel": "Fine"
-						}
 					}
 				],
 				"policy": {
@@ -342,8 +342,28 @@
 				"[concat(variables('factoryId'), '/datasets/DB_Delta_Lake')]",
 				"[concat(variables('factoryId'), '/datasets/CompaniesDataIN')]",
 				"[concat(variables('factoryId'), '/datasets/BranchesIN')]",
-				"[concat(variables('factoryId'), '/datasets/ManagersIN')]",
-				"[concat(variables('factoryId'), '/dataflows/Upload')]"
+				"[concat(variables('factoryId'), '/dataflows/Upload')]",
+				"[concat(variables('factoryId'), '/datasets/ManagersIN')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/BranchesCosmos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "CosmosDb",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "CosmosDbSqlApiCollection",
+				"schema": {},
+				"typeProperties": {
+					"collectionName": "branches"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/CosmosDb')]"
 			]
 		},
 		{
@@ -620,7 +640,7 @@
 						},
 						{
 							"dataset": {
-								"referenceName": "CompaniesCosmos",
+								"referenceName": "BranchesCosmos",
 								"type": "DatasetReference"
 							},
 							"name": "BranchesCosmos"
@@ -630,7 +650,7 @@
 								"referenceName": "ManagersCosmos",
 								"type": "DatasetReference"
 							},
-							"name": "ManagertsCosmos"
+							"name": "ManagerCosmos"
 						}
 					],
 					"transformations": [],
@@ -652,8 +672,10 @@
 						"     deletable:false,",
 						"     insertable:true,",
 						"     updateable:false,",
-						"     upsertable:true,",
+						"     upsertable:false,",
+						"     recreate:true,",
 						"     format: 'document',",
+						"     partitionKey: ['/id'],",
 						"     throughput: 500,",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true) ~> CompaniesCosmos",
@@ -662,8 +684,11 @@
 						"     deletable:false,",
 						"     insertable:true,",
 						"     updateable:false,",
-						"     upsertable:true,",
+						"     upsertable:false,",
+						"     recreate:true,",
 						"     format: 'document',",
+						"     partitionKey: ['/id'],",
+						"     throughput: 500,",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true) ~> BranchesCosmos",
 						"Managers sink(allowSchemaDrift: true,",
@@ -673,8 +698,10 @@
 						"     updateable:false,",
 						"     upsertable:true,",
 						"     format: 'document',",
+						"     partitionKey: ['/contactId'],",
+						"     throughput: 500,",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> ManagertsCosmos"
+						"     skipDuplicateMapOutputs: true) ~> ManagerCosmos"
 					]
 				}
 			},
@@ -683,6 +710,7 @@
 				"[concat(variables('factoryId'), '/datasets/BranchesIN')]",
 				"[concat(variables('factoryId'), '/datasets/ManagersIN')]",
 				"[concat(variables('factoryId'), '/datasets/CompaniesCosmos')]",
+				"[concat(variables('factoryId'), '/datasets/BranchesCosmos')]",
 				"[concat(variables('factoryId'), '/datasets/ManagersCosmos')]"
 			]
 		}
