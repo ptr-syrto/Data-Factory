@@ -246,7 +246,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "BranchesIN",
+						"referenceName": "ManagersIN",
 						"type": "DatasetReference"
 					}
 				]
