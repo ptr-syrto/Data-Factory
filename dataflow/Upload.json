@@ -126,6 +126,7 @@
 				"     recreate:true,",
 				"     format: 'document',",
 				"     partitionKey: ['/year'],",
+				"     throughput: 1000,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> FinancialsCosmos"
 			]
