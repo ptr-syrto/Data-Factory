@@ -200,6 +200,51 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/FinancialsCosmos')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "CosmosDb",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "CosmosDbSqlApiCollection",
+				"schema": {},
+				"typeProperties": {
+					"collectionName": "financials"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/CosmosDb')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/FinancialsIN')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ManualStagingBlob",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "financials",
+						"fileSystem": "databricks"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ManualStagingBlob')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ManagersCosmos')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -314,6 +359,13 @@
 								"type": "DatasetReference"
 							},
 							"name": "Managers"
+						},
+						{
+							"dataset": {
+								"referenceName": "FinancialsIN",
+								"type": "DatasetReference"
+							},
+							"name": "Financials"
 						}
 					],
 					"sinks": [
@@ -337,6 +389,13 @@
 								"type": "DatasetReference"
 							},
 							"name": "ManagerCosmos"
+						},
+						{
+							"dataset": {
+								"referenceName": "FinancialsCosmos",
+								"type": "DatasetReference"
+							},
+							"name": "FinancialsCosmos"
 						}
 					],
 					"transformations": [],
@@ -353,6 +412,10 @@
 						"     validateSchema: false,",
 						"     ignoreNoFilesFound: false,",
 						"     format: 'parquet') ~> Managers",
+						"source(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false,",
+						"     format: 'parquet') ~> Financials",
 						"Companies sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     deletable:false,",
@@ -388,7 +451,19 @@
 						"     partitionKey: ['/contact_id'],",
 						"     throughput: 1000,",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> ManagerCosmos"
+						"     skipDuplicateMapOutputs: true) ~> ManagerCosmos",
+						"Financials sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     deletable:false,",
+						"     insertable:true,",
+						"     updateable:false,",
+						"     upsertable:false,",
+						"     recreate:true,",
+						"     format: 'document',",
+						"     partitionKey: ['/year'],",
+						"     throughput: 1000,",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> FinancialsCosmos"
 					]
 				}
 			},
@@ -396,9 +471,11 @@
 				"[concat(variables('factoryId'), '/datasets/CompaniesDataIN')]",
 				"[concat(variables('factoryId'), '/datasets/BranchesIN')]",
 				"[concat(variables('factoryId'), '/datasets/ManagersIN')]",
+				"[concat(variables('factoryId'), '/datasets/FinancialsIN')]",
 				"[concat(variables('factoryId'), '/datasets/CompaniesCosmos')]",
 				"[concat(variables('factoryId'), '/datasets/BranchesCosmos')]",
-				"[concat(variables('factoryId'), '/datasets/ManagersCosmos')]"
+				"[concat(variables('factoryId'), '/datasets/ManagersCosmos')]",
+				"[concat(variables('factoryId'), '/datasets/FinancialsCosmos')]"
 			]
 		},
 		{
@@ -588,6 +665,12 @@
 								"dependencyConditions": [
 									"Succeeded"
 								]
+							},
+							{
+								"activity": "Copy Financials",
+								"dependencyConditions": [
+									"Succeeded"
+								]
 							}
 						],
 						"policy": {
@@ -607,9 +690,11 @@
 									"Companies": {},
 									"Branches": {},
 									"Managers": {},
+									"Financials": {},
 									"CompaniesCosmos": {},
 									"BranchesCosmos": {},
-									"ManagerCosmos": {}
+									"ManagerCosmos": {},
+									"FinancialsCosmos": {}
 								}
 							},
 							"staging": {},
@@ -699,6 +784,86 @@
 								"enablePartitionDiscovery": false
 							}
 						}
+					},
+					{
+						"name": "Copy Financials",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Clear Financials",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureDatabricksDeltaLakeSource",
+								"query": "SELECT *\nFROM testing.cosmos_upload.financials",
+								"exportSettings": {
+									"type": "AzureDatabricksDeltaLakeExportCommand"
+								}
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings",
+									"copyBehavior": "PreserveHierarchy"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "DB_Delta_Lake",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "FinancialsIN",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Clear Financials",
+						"type": "Delete",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "FinancialsIN",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"enableLogging": false,
+							"storeSettings": {
+								"type": "AzureBlobFSReadSettings",
+								"recursive": true,
+								"enablePartitionDiscovery": false
+							}
+						}
 					}
 				],
 				"policy": {
@@ -712,7 +877,8 @@
 				"[concat(variables('factoryId'), '/datasets/CompaniesDataIN')]",
 				"[concat(variables('factoryId'), '/datasets/BranchesIN')]",
 				"[concat(variables('factoryId'), '/dataflows/Upload')]",
-				"[concat(variables('factoryId'), '/datasets/ManagersIN')]"
+				"[concat(variables('factoryId'), '/datasets/ManagersIN')]",
+				"[concat(variables('factoryId'), '/datasets/FinancialsIN')]"
 			]
 		}
 	]
